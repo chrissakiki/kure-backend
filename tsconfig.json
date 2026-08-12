@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                          /* Output modern JavaScript */
+    "module": "NodeNext",                        /* Standard module resolution for Node */
+    "moduleResolution": "NodeNext",
+    "outDir": "./dist",                          /* Destination for compiled JS */
+    "esModuleInterop": true,                      /* Emits additional JavaScript to ease imports */
+    "forceConsistentCasingInFileNames": true,     /* Ensure case sensitivity in imports */
+    "strict": true,                              /* Enable all strict type-checking options */
+    "skipLibCheck": true,                        /* Skip type checking of declaration files */
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "prisma.config.ts"]
+}
