@@ -3,6 +3,6 @@ import faqRoutes from "./faq.routes";
 
 const router = Router();
 
-router.use('/faq', faqRoutes);
+router.use('/faqs', faqRoutes);
 
 export default router;

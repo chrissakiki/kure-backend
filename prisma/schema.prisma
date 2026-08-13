@@ -12,23 +12,63 @@ datasource db {
   provider = "postgresql"
 }
 
+enum FaqPage {
+  MAIN
+  ACADEMY
+}
 
-// CREATE TABLE "Faq" (
-//   "id"        TEXT         NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
-//   "question"  TEXT         NOT NULL,
-//   "answer"    TEXT         NOT NULL,
-//   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-//   "updatedAt" TIMESTAMP(3) NOT NULL
+
+// CREATE TABLE "faq_categories" (
+//   "id"         TEXT         NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+//   "label"      TEXT         NOT NULL,
+//   "title"      TEXT         NOT NULL,
+//   "sortOrder"  INTEGER      NOT NULL,
+//   "isActive"   BOOLEAN      NOT NULL DEFAULT true,
+//   "createdAt"  TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//   "updatedAt"  TIMESTAMP(3) NOT NULL
 // );
-//
 
-
-model Faq {
+model FaqCategory {
   id        String   @id @default(uuid())
-  question  String
-  answer    String
+  page      FaqPage
+  label     String
+  title     String
+  sortOrder Int
+  isActive  Boolean  @default(true)
+  faqs      Faq[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("faq_categories")
+}
+
+// CREATE TABLE "faqs" (
+//   "id"          TEXT         NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+//   "question"    TEXT         NOT NULL,
+//   "answer"      TEXT         NOT NULL,
+//   "sortOrder"   INTEGER      NOT NULL,
+//   "isActive"    BOOLEAN      NOT NULL DEFAULT true,
+//   "categoryId"  TEXT         NOT NULL,
+//   "createdAt"   TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//   "updatedAt"   TIMESTAMP(3) NOT NULL,
+//
+//   CONSTRAINT "faqs_categoryId_fkey"
+//     FOREIGN KEY ("categoryId")
+//     REFERENCES "faq_categories"("id")
+//     ON DELETE CASCADE
+//     ON UPDATE CASCADE
+// );
+
+model Faq {
+  id         String      @id @default(uuid())
+  question   String
+  answer     String
+  sortOrder  Int
+  isActive   Boolean     @default(true)
+  categoryId String
+  category   FaqCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
 
   @@map("faqs")
 }
