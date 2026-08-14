@@ -1,0 +1,15 @@
+info:
+  name: Delete Faq Category
+  type: http
+  seq: 10
+
+http:
+  method: DELETE
+  url: "{{base_url}}/admin/faqs/categories/{{category_id}}"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

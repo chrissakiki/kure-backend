@@ -1,10 +1,8 @@
 import { Router } from 'express';
 import faqRoutes from './faq.routes';
-import adminRoutes from './admin';
 
 const router = Router();
 
 router.use('/faqs', faqRoutes);
-router.use('/admin', adminRoutes);
 
 export default router;

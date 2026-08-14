@@ -1,0 +1,25 @@
+info:
+  name: Create Faq Category
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/faqs/categories"
+  body:
+    type: json
+    data: |-
+      {
+        "page": "MAIN",
+        "label": "BOOKING & SCHEDULING",
+        "title": "Booking your session.",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

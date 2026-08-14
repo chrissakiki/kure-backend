@@ -1,0 +1,25 @@
+info:
+  name: Create Faq
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/faqs"
+  body:
+    type: json
+    data: |-
+      {
+        "question": "How do I book a session?",
+        "answer": "Book directly through our website or WhatsApp us.",
+        "sortOrder": 1,
+        "isActive": true,
+        "categoryId": "{{category_id}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

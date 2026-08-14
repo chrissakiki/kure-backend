@@ -1,0 +1,25 @@
+info:
+  name: Update Faq
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/faqs/{{faq_id}}"
+  body:
+    type: json
+    data: |-
+      {
+        "question": "How do I book a session?",
+        "answer": "Updated answer text.",
+        "sortOrder": 1,
+        "isActive": true,
+        "categoryId": "{{category_id}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
