@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getFaqs } from '../controllers/faq.controller';
-import { validate } from '../middleware/validate';
+import { validate } from '../middleware/validate.middleware';
 import { getPublicFaqsSchema } from '../schemas/faq.schema';
 
 const router = Router();

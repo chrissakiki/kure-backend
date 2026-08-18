@@ -1,0 +1,29 @@
+info:
+  name: Update Testimonial
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/testimonials/{{testimonial_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Maya K.",
+        "subtitle": "Package holder, Dbayeh",
+        "content": "Updated: continuity of care matters. I booked the same therapist every time and the difference showed up in my body within a month.",
+        "sortOrder": 1,
+        "isActive": true,
+        "categoryId": "{{testimonial_category_id}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

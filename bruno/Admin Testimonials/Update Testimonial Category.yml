@@ -1,0 +1,27 @@
+info:
+  name: Update Testimonial Category
+  type: http
+  seq: 9
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/testimonials/categories/{{testimonial_category_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "label": "CLIENT STORIES",
+        "title": "Stories from the table.",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

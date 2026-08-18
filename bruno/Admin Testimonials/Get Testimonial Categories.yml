@@ -1,0 +1,18 @@
+info:
+  name: Get Testimonial Categories
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/admin/testimonials/categories"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

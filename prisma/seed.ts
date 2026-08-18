@@ -189,6 +189,121 @@ const faqSeed = [
   },
 ];
 
+const testimonialSeed = [
+  {
+    label: "Signature Sessions",
+    title: "On the sessions.",
+    sortOrder: 1,
+    testimonials: [
+      {
+        name: "Nada A.",
+        subtitle: "Madero · Dbayeh",
+        content:
+          "The session was great. I am super impressed how professional and talented the therapist is. It's rare to see this kind of service in Lebanon.",
+        sortOrder: 1,
+      },
+      {
+        name: "Rania K.",
+        subtitle: "Package · In-Home",
+        content:
+          "I started the 5-session package thinking I'd try it. Three sessions in, I felt real change. KURE is not a spa — it is something else.",
+        sortOrder: 2,
+      },
+      {
+        name: "Layal M.",
+        subtitle: "Facial · Verdun",
+        content:
+          "The therapist arrived exactly on time. Everything was prepared. The room was calm. This is how wellness should feel.",
+        sortOrder: 3,
+      },
+    ],
+  },
+  {
+    label: "In-Home",
+    title: "On coming to you.",
+    sortOrder: 2,
+    testimonials: [
+      {
+        name: "Karim S.",
+        subtitle: "Signature · In-Home Beirut",
+        content:
+          "I've had massages at spas across Europe. The KURE therapist who came to my apartment matched anything I've had abroad.",
+        sortOrder: 1,
+      },
+      {
+        name: "Yara M.",
+        subtitle: "Body Massage · In-Home Jounieh",
+        content:
+          "Setup took 10 minutes. The session was 80 minutes. I fell asleep. That's a first at home.",
+        sortOrder: 2,
+      },
+      {
+        name: "Rita K.",
+        subtitle: "Lymphatic · In-Home Kaslik",
+        content:
+          "My mother lives in Kaslik and doesn't drive. KURE arrives, cares for her, leaves. This changed her month.",
+        sortOrder: 3,
+      },
+    ],
+  },
+  {
+    label: "Corporate & Events",
+    title: "On team & gathering wellness.",
+    sortOrder: 3,
+    testimonials: [
+      {
+        name: "Nour H., Head of People",
+        subtitle: "Corporate Wellness Day",
+        content:
+          "Our wellness day boosted the entire team's mood for a week. The KURE therapists were professional, warm, and unforgettable.",
+        sortOrder: 1,
+      },
+      {
+        name: "Marc J., Founder",
+        subtitle: "Corporate Retreat",
+        content:
+          "For our end-of-quarter retreat, KURE's morning stretching and evening massage program was the highlight — clients still mention it.",
+        sortOrder: 2,
+      },
+      {
+        name: "Layla T.",
+        subtitle: "Bridal Event · Batroun",
+        content:
+          "KURE turned my bachelorette weekend into the most memorable moment for me and my girls. Every detail was thought through.",
+        sortOrder: 3,
+      },
+    ],
+  },
+  {
+    label: "KURE Academy",
+    title: "On the training.",
+    sortOrder: 4,
+    testimonials: [
+      {
+        name: "Sarah G.",
+        subtitle: "Madero Certification",
+        content:
+          "Coming from a physio background, KURE Academy elevated my touch. The Madero training changed how I work.",
+        sortOrder: 1,
+      },
+      {
+        name: "Ali D.",
+        subtitle: "Lymphatic Drainage Cert.",
+        content:
+          "Small class, real hands-on time with the trainer, and a certificate that means something in the industry.",
+        sortOrder: 2,
+      },
+      {
+        name: "Maya R.",
+        subtitle: "Body Massage Fundamentals",
+        content:
+          "The KURE method is beautiful — respectful, precise, and deeply human. I recommend the Academy to every therapist I meet.",
+        sortOrder: 3,
+      },
+    ],
+  },
+];
+
 async function main() {
   await prisma.faq.deleteMany();
   await prisma.faqCategory.deleteMany();
@@ -214,6 +329,37 @@ async function main() {
   }
 
   console.log(`Seeded ${faqSeed.length} FAQ categories with questions.`);
+
+  await prisma.testimonial.deleteMany();
+  await prisma.testimonialCategory.deleteMany();
+
+  for (const category of testimonialSeed) {
+    await prisma.testimonialCategory.create({
+      data: {
+        label: category.label,
+        title: category.title,
+        sortOrder: category.sortOrder,
+        isActive: true,
+        testimonials: {
+          create: category.testimonials.map((testimonial) => ({
+            name: testimonial.name,
+            subtitle: testimonial.subtitle,
+            content: testimonial.content,
+            sortOrder: testimonial.sortOrder,
+            isActive: true,
+          })),
+        },
+      },
+    });
+  }
+
+  const testimonialCount = testimonialSeed.reduce(
+    (count, category) => count + category.testimonials.length,
+    0,
+  );
+  console.log(
+    `Seeded ${testimonialSeed.length} testimonial categories with ${testimonialCount} testimonials.`,
+  );
 }
 
 main()

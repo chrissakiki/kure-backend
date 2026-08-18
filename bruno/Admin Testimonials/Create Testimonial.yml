@@ -1,0 +1,29 @@
+info:
+  name: Create Testimonial
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/testimonials"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Maya K.",
+        "subtitle": "Regular client, Dbayeh",
+        "content": "My therapist arrives on time, the room is quiet, and I leave actually lighter. KURE is the only session I never skip.",
+        "sortOrder": 1,
+        "isActive": true,
+        "categoryId": "{{testimonial_category_id}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

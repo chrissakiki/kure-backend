@@ -1,0 +1,27 @@
+info:
+  name: Create Testimonial Category
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/testimonials/categories"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "label": "CLIENT STORIES",
+        "title": "What our clients say.",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,21 +1,20 @@
-import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
-import { FaqPage } from '../../generated/prisma/enums';
+import { Request, Response } from 'express';
 
-// GET /api/admin/faqs — CMS (all categories + faqs, optional ?page=)
-const getFaqs = async (req: Request, res: Response) => {
-  const { page } = req.query;
-
+const getTestimonials = async (req: Request, res: Response) => {
   try {
-    const result = await prisma.faqCategory.findMany({
-      where: page ? { page: page as FaqPage } : undefined,
+    const result = await prisma.testimonialCategory.findMany({
       include: {
-        faqs: { orderBy: { sortOrder: 'asc' } },
+        testimonials: {
+          orderBy: { sortOrder: 'asc' },
+        },
       },
       orderBy: { sortOrder: 'asc' },
     });
 
-    res.status(200).json({ data: result });
+    res.status(200).json({
+      data: result,
+    });
   } catch (error) {
     res.status(500).json({
       error: {
@@ -26,17 +25,17 @@ const getFaqs = async (req: Request, res: Response) => {
   }
 };
 
-const getFaq = async (req: Request, res: Response) => {
+const getTestimonial = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const result = await prisma.faq.findUnique({
+    const result = await prisma.testimonial.findUnique({
       where: { id: id as string },
     });
 
     if (!result) {
       return res.status(404).json({
-        error: { message: 'FAQ not found', code: 'NOT_FOUND' },
+        error: { message: 'Testimonial not found', code: 'NOT_FOUND' },
       });
     }
 
@@ -51,20 +50,24 @@ const getFaq = async (req: Request, res: Response) => {
   }
 };
 
-const createFaq = async (req: Request, res: Response) => {
+const createTestimonial = async (req: Request, res: Response) => {
   const data = req.body;
 
   try {
-    const result = await prisma.faq.create({
+    const result = await prisma.testimonial.create({
       data: {
-        question: data.question,
-        answer: data.answer,
-        isActive: data.isActive ?? true,
-        sortOrder: data.sortOrder,
+        name: data.name,
+        content: data.content,
+        subtitle: data.subtitle,
         categoryId: data.categoryId,
+        sortOrder: data.sortOrder,
+        isActive: data.isActive ?? true,
       },
     });
-    res.status(201).json({ data: result });
+
+    res.status(201).json({
+      data: result,
+    });
   } catch (error) {
     res.status(500).json({
       error: {
@@ -75,18 +78,17 @@ const createFaq = async (req: Request, res: Response) => {
   }
 };
 
-const updateFaq = async (req: Request, res: Response) => {
+const updateTestimonial = async (req: Request, res: Response) => {
   const { id } = req.params;
-
   try {
-    const result = await prisma.faq.update({
+    const result = await prisma.testimonial.update({
       where: { id: id as string },
       data: req.body,
     });
 
     if (!result) {
       return res.status(404).json({
-        error: { message: 'FAQ not found', code: 'NOT_FOUND' },
+        error: { message: 'Testimonial not found', code: 'NOT_FOUND' },
       });
     }
 
@@ -101,17 +103,16 @@ const updateFaq = async (req: Request, res: Response) => {
   }
 };
 
-const deleteFaq = async (req: Request, res: Response) => {
+const deleteTestimonial = async (req: Request, res: Response) => {
   const { id } = req.params;
-
   try {
-    const result = await prisma.faq.delete({
+    const result = await prisma.testimonial.delete({
       where: { id: id as string },
     });
 
     if (!result) {
       return res.status(404).json({
-        error: { message: 'FAQ not found', code: 'NOT_FOUND' },
+        error: { message: 'Testimonial not found', code: 'NOT_FOUND' },
       });
     }
 
@@ -126,12 +127,9 @@ const deleteFaq = async (req: Request, res: Response) => {
   }
 };
 
-const getFaqCategories = async (req: Request, res: Response) => {
-  const { page } = req.query;
-
+const getTestimonialCategories = async (req: Request, res: Response) => {
   try {
-    const result = await prisma.faqCategory.findMany({
-      where: page ? { page: page as FaqPage } : undefined,
+    const result = await prisma.testimonialCategory.findMany({
       orderBy: { sortOrder: 'asc' },
     });
     res.status(200).json({ data: result });
@@ -145,20 +143,20 @@ const getFaqCategories = async (req: Request, res: Response) => {
   }
 };
 
-const getFaqCategory = async (req: Request, res: Response) => {
+const getTestimonialCategory = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const result = await prisma.faqCategory.findUnique({
+    const result = await prisma.testimonialCategory.findUnique({
       where: { id: id as string },
     });
 
     if (!result) {
       return res.status(404).json({
-        error: { message: 'FAQ category not found', code: 'NOT_FOUND' },
+        error: { message: 'Testimonial category not found', code: 'NOT_FOUND' },
       });
     }
- 
+
     res.status(200).json({ data: result });
   } catch (error) {
     res.status(500).json({
@@ -170,13 +168,12 @@ const getFaqCategory = async (req: Request, res: Response) => {
   }
 };
 
-const createFaqCategory = async (req: Request, res: Response) => {
+const createTestimonialCategory = async (req: Request, res: Response) => {
   const data = req.body;
 
   try {
-    const result = await prisma.faqCategory.create({
+    const result = await prisma.testimonialCategory.create({
       data: {
-        page: data.page,
         label: data.label,
         title: data.title,
         isActive: data.isActive ?? true,
@@ -194,11 +191,11 @@ const createFaqCategory = async (req: Request, res: Response) => {
   }
 };
 
-const updateFaqCategory = async (req: Request, res: Response) => {
+const updateTestimonialCategory = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const result = await prisma.faqCategory.update({
+    const result = await prisma.testimonialCategory.update({
       where: { id: id as string },
       data: req.body,
     });
@@ -214,11 +211,11 @@ const updateFaqCategory = async (req: Request, res: Response) => {
   }
 };
 
-const deleteFaqCategory = async (req: Request, res: Response) => {
+const deleteTestimonialCategory = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   try {
-    const result = await prisma.faqCategory.delete({
+    const result = await prisma.testimonialCategory.delete({
       where: { id: id as string },
     });
 
@@ -234,14 +231,14 @@ const deleteFaqCategory = async (req: Request, res: Response) => {
 };
 
 export {
-  getFaqs,
-  getFaq,
-  createFaq,
-  updateFaq,
-  deleteFaq,
-  getFaqCategories,
-  getFaqCategory,
-  createFaqCategory,
-  updateFaqCategory,
-  deleteFaqCategory,
+  getTestimonials,
+  getTestimonial,
+  createTestimonial,
+  updateTestimonial,
+  deleteTestimonial,
+  getTestimonialCategories,
+  getTestimonialCategory,
+  createTestimonialCategory,
+  updateTestimonialCategory,
+  deleteTestimonialCategory,
 };

@@ -11,7 +11,7 @@ import {
   updateFaq,
   updateFaqCategory,
 } from '../../controllers/admin/faq.controller';
-import { validate } from '../../middleware/validate';
+import { validate } from '../../middleware/validate.middleware';
 import {
   createFaqCategorySchema,
   createFaqSchema,

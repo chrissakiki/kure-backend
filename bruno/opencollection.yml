@@ -15,13 +15,26 @@ config:
       bypassProxy: ""
 
 request:
+  headers:
+    - name: Authorization
+      value: ""
+      disabled: true
+  auth:
+    type: bearer
+    token: "{{token}}"
   variables:
     - name: base_url
       value: http://localhost:5001/api
+    - name: token
+      value: ""
     - name: category_id
       value: ""
     - name: faq_id
       value: "9"
+    - name: testimonial_category_id
+      value: ""
+    - name: testimonial_id
+      value: ""
 bundled: false
 extensions:
   bruno:

@@ -17,6 +17,45 @@ enum FaqPage {
   ACADEMY
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum OtpPurpose {
+  EMAIL_VERIFICATION
+}
+
+model User {
+  id              String    @id @default(uuid())
+  email           String    @unique
+  passwordHash    String
+  firstName       String
+  lastName        String
+  role            UserRole  @default(USER)
+  isActive        Boolean   @default(true)
+  emailVerifiedAt DateTime?
+  lastLoginAt     DateTime?
+  tokenVersion    Int       @default(0)
+  createdAt       DateTime  @default(now())
+
+  @@index([role])
+  @@map("users")
+}
+
+model OtpChallenge {
+  id         String     @id @default(uuid())
+  email      String
+  codeHash   String
+  purpose    OtpPurpose
+  expiresAt  DateTime
+  consumedAt DateTime?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  @@index([email, purpose])
+  @@map("otp_challenges")
+}
 
 // CREATE TABLE "faq_categories" (
 //   "id"         TEXT         NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -71,4 +110,32 @@ model Faq {
   updatedAt  DateTime    @updatedAt
 
   @@map("faqs")
+}
+
+model TestimonialCategory {
+  id           String        @id @default(uuid())
+  label        String
+  title        String
+  isActive     Boolean       @default(true)
+  sortOrder    Int
+  testimonials Testimonial[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@map("testimonial_categories")
+}
+
+model Testimonial {
+  id         String              @id @default(uuid())
+  name       String
+  content    String
+  subtitle   String
+  isActive   Boolean             @default(true)
+  sortOrder  Int
+  categoryId String
+  category   TestimonialCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt  DateTime            @default(now())
+  updatedAt  DateTime            @updatedAt
+
+  @@map("testimonials")
 }
