@@ -1,0 +1,29 @@
+info:
+  name: Create Feature Item
+  type: http
+  seq: 15
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/content/feature-items"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "PACKAGES",
+        "sectionKey": "PACKAGE_BENEFITS",
+        "title": "Real Savings",
+        "description": "Save on every session — 5-session and 10-session tiers.",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

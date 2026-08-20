@@ -1,0 +1,25 @@
+info:
+  name: Update Feature Item
+  type: http
+  seq: 17
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/content/feature-items/{{feature_item_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Real Savings",
+        "description": "Save on every session — 5-session and 10-session tiers."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

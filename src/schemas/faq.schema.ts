@@ -79,11 +79,3 @@ export const updateFaqCategorySchema = z.object({
 export const deleteFaqCategorySchema = z.object({
   params: idParam,
 });
-
-// ——— Public ———
-
-export const getPublicFaqsSchema = z.object({
-  query: z.object({
-    page: z.enum(FaqPage).optional().default('MAIN'),
-  }),
-});

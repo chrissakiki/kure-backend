@@ -1,0 +1,30 @@
+info:
+  name: Create Job Opening
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/job-openings"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Licensed Massage Therapist",
+        "status": "ACTIVELY_HIRING",
+        "employmentTypes": ["FULL-TIME", "PART-TIME", "ON-CALL"],
+        "locations": ["DBAYEH", "VERDUN", "IN-HOME"],
+        "description": "Delivering KURE's signature massage, facial lifting, drainage, and recovery protocols.",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

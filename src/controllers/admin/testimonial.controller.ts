@@ -1,5 +1,6 @@
 import { prisma } from '../../config/db';
 import { Request, Response } from 'express';
+import { asString } from '../../utils/helpers';
 
 const getTestimonials = async (req: Request, res: Response) => {
   try {
@@ -26,11 +27,11 @@ const getTestimonials = async (req: Request, res: Response) => {
 };
 
 const getTestimonial = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.testimonial.findUnique({
-      where: { id: id as string },
+      where: { id },
     });
 
     if (!result) {
@@ -79,10 +80,10 @@ const createTestimonial = async (req: Request, res: Response) => {
 };
 
 const updateTestimonial = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
   try {
     const result = await prisma.testimonial.update({
-      where: { id: id as string },
+      where: { id },
       data: req.body,
     });
 
@@ -104,10 +105,10 @@ const updateTestimonial = async (req: Request, res: Response) => {
 };
 
 const deleteTestimonial = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
   try {
     const result = await prisma.testimonial.delete({
-      where: { id: id as string },
+      where: { id },
     });
 
     if (!result) {
@@ -144,11 +145,11 @@ const getTestimonialCategories = async (req: Request, res: Response) => {
 };
 
 const getTestimonialCategory = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.testimonialCategory.findUnique({
-      where: { id: id as string },
+      where: { id },
     });
 
     if (!result) {
@@ -192,11 +193,11 @@ const createTestimonialCategory = async (req: Request, res: Response) => {
 };
 
 const updateTestimonialCategory = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.testimonialCategory.update({
-      where: { id: id as string },
+      where: { id },
       data: req.body,
     });
 
@@ -212,11 +213,11 @@ const updateTestimonialCategory = async (req: Request, res: Response) => {
 };
 
 const deleteTestimonialCategory = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.testimonialCategory.delete({
-      where: { id: id as string },
+      where: { id },
     });
 
     res.status(200).json({ data: result });

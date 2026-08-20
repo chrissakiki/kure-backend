@@ -1,0 +1,24 @@
+info:
+  name: Update Legal Document
+  type: http
+  seq: 26
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/content/legal-documents/{{legal_document_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "content": "<div class=\"legal-notice\"><p>Updated legal content...</p></div>"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

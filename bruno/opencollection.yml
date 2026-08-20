@@ -35,6 +35,26 @@ request:
       value: ""
     - name: testimonial_id
       value: ""
+    - name: hero_id
+      value: ""
+    - name: section_intro_id
+      value: ""
+    - name: section_outro_id
+      value: ""
+    - name: offer_card_id
+      value: ""
+    - name: feature_item_id
+      value: ""
+    - name: step_item_id
+      value: ""
+    - name: legal_document_id
+      value: ""
+    - name: content_block_id
+      value: ""
+    - name: milestone_stat_id
+      value: ""
+    - name: job_opening_id
+      value: ""
 bundled: false
 extensions:
   bruno:

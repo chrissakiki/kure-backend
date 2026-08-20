@@ -1,0 +1,26 @@
+info:
+  name: Update Hero
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/heroes/{{hero_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Wellness,",
+        "titleAccent": "delivered.",
+        "notice": "Current schedule live on Instagram @kure.lb — see the Academy highlight."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

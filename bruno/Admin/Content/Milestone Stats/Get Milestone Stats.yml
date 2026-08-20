@@ -1,0 +1,27 @@
+﻿info:
+  name: Get Milestone Stats
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/admin/content/milestone-stats"
+  params:
+    - name: page
+      value: ABOUT
+      type: query
+      disabled: true
+    - name: sectionKey
+      value: MILESTONES
+      type: query
+      disabled: true
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

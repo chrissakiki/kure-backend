@@ -1,0 +1,24 @@
+﻿info:
+  name: Update Content Block
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/content/content-blocks/{{content_block_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "content": "<section class=\"content-section\"><h2>Updated story.</h2><p>Updated content...</p></section>"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

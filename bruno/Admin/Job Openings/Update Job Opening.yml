@@ -1,0 +1,25 @@
+info:
+  name: Update Job Opening
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/job-openings/{{job_opening_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "status": "TALENT_POOL",
+        "description": "Updated role description."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

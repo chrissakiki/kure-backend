@@ -1,0 +1,25 @@
+info:
+  name: Update Step Item
+  type: http
+  seq: 22
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/content/step-items/{{step_item_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Choose your package",
+        "description": "5 or 10 sessions — depending on how often you want to visit."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

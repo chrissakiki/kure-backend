@@ -1,0 +1,7 @@
+﻿info:
+  name: Step Items
+  type: folder
+  seq: 5
+
+request:
+  auth: inherit

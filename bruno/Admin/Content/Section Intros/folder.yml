@@ -1,0 +1,7 @@
+﻿info:
+  name: Section Intros
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit

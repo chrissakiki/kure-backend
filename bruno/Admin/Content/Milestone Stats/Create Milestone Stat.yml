@@ -1,0 +1,29 @@
+﻿info:
+  name: Create Milestone Stat
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/content/milestone-stats"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "ABOUT",
+        "sectionKey": "MILESTONES",
+        "value": "20K+",
+        "label": "SESSIONS DELIVERED",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

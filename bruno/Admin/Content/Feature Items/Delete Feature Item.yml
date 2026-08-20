@@ -1,0 +1,18 @@
+info:
+  name: Delete Feature Item
+  type: http
+  seq: 18
+
+http:
+  method: DELETE
+  url: "{{base_url}}/admin/content/feature-items/{{feature_item_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

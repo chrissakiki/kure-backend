@@ -1,0 +1,23 @@
+info:
+  name: Get Legal Documents
+  type: http
+  seq: 24
+
+http:
+  method: GET
+  url: "{{base_url}}/admin/content/legal-documents"
+  params:
+    - name: page
+      value: TERMS
+      type: query
+      disabled: true
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

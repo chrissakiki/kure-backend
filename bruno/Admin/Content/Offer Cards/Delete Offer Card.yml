@@ -1,0 +1,18 @@
+info:
+  name: Delete Offer Card
+  type: http
+  seq: 13
+
+http:
+  method: DELETE
+  url: "{{base_url}}/admin/content/offer-cards/{{offer_card_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

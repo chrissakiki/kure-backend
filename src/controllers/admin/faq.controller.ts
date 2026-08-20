@@ -1,14 +1,15 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
 import { FaqPage } from '../../generated/prisma/enums';
+import { asString } from '../../utils/helpers';
 
 // GET /api/admin/faqs — CMS (all categories + faqs, optional ?page=)
 const getFaqs = async (req: Request, res: Response) => {
-  const { page } = req.query;
+  const page = asString(req.query.page) as FaqPage | undefined;
 
   try {
     const result = await prisma.faqCategory.findMany({
-      where: page ? { page: page as FaqPage } : undefined,
+      where: page ? { page } : undefined,
       include: {
         faqs: { orderBy: { sortOrder: 'asc' } },
       },
@@ -27,11 +28,11 @@ const getFaqs = async (req: Request, res: Response) => {
 };
 
 const getFaq = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.faq.findUnique({
-      where: { id: id as string },
+      where: { id },
     });
 
     if (!result) {
@@ -76,11 +77,11 @@ const createFaq = async (req: Request, res: Response) => {
 };
 
 const updateFaq = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.faq.update({
-      where: { id: id as string },
+      where: { id },
       data: req.body,
     });
 
@@ -102,11 +103,11 @@ const updateFaq = async (req: Request, res: Response) => {
 };
 
 const deleteFaq = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.faq.delete({
-      where: { id: id as string },
+      where: { id },
     });
 
     if (!result) {
@@ -127,11 +128,11 @@ const deleteFaq = async (req: Request, res: Response) => {
 };
 
 const getFaqCategories = async (req: Request, res: Response) => {
-  const { page } = req.query;
+  const page = asString(req.query.page) as FaqPage | undefined;
 
   try {
     const result = await prisma.faqCategory.findMany({
-      where: page ? { page: page as FaqPage } : undefined,
+      where: page ? { page } : undefined,
       orderBy: { sortOrder: 'asc' },
     });
     res.status(200).json({ data: result });
@@ -146,11 +147,11 @@ const getFaqCategories = async (req: Request, res: Response) => {
 };
 
 const getFaqCategory = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.faqCategory.findUnique({
-      where: { id: id as string },
+      where: { id },
     });
 
     if (!result) {
@@ -195,11 +196,11 @@ const createFaqCategory = async (req: Request, res: Response) => {
 };
 
 const updateFaqCategory = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.faqCategory.update({
-      where: { id: id as string },
+      where: { id },
       data: req.body,
     });
 
@@ -215,11 +216,11 @@ const updateFaqCategory = async (req: Request, res: Response) => {
 };
 
 const deleteFaqCategory = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = asString(req.params.id)!;
 
   try {
     const result = await prisma.faqCategory.delete({
-      where: { id: id as string },
+      where: { id },
     });
 
     res.status(200).json({ data: result });

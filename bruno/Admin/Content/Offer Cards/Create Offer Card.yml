@@ -1,0 +1,38 @@
+info:
+  name: Create Offer Card
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/content/offer-cards"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "PACKAGES",
+        "sectionKey": "PACKAGE_SIZES",
+        "name": "Single Session",
+        "subtitle": "Book one session when you need care, recovery, or reset.",
+        "price": "$65",
+        "priceNote": "/50 min session",
+        "perks": [
+          "80 min sessions — $90",
+          "Any signature service",
+          "In-Home or in-clinic"
+        ],
+        "ctaLabel": "BOOK NOW",
+        "ctaHref": "$OPEN_BOOKING_MODAL",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,25 @@
+info:
+  name: Update Section Intro
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/content/section-intros/{{section_intro_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Two package sizes.",
+        "description": "Pick the pace that fits your life — save on every session, book with priority."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,29 @@
+info:
+  name: Create Section Intro
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/content/section-intros"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "PACKAGES",
+        "sectionKey": "PACKAGE_SIZES",
+        "eyebrow": "CHOOSE YOUR RHYTHM",
+        "title": "Two package sizes.",
+        "description": "Pick the pace that fits your life — save on every session, book with priority.",
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

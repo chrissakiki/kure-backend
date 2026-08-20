@@ -1,0 +1,33 @@
+info:
+  name: Create Hero
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/heroes"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "HOME",
+        "eyebrow": "MASSAGE · RITUALS · RESULTS",
+        "title": "Wellness,",
+        "titleAccent": "delivered.",
+        "description": "Premium massage therapy, sculpting, lymphatic, facial, and recovery — practiced by trained hands and delivered at home, at KURE Dbayeh, and at KURE Verdun.",
+        "imageUrl": "https://example.com/home-hero.jpg",
+        "primaryCtaLabel": "BOOK YOUR SESSION",
+        "secondaryCtaLabel": "EXPLORE SERVICES",
+        "secondaryCtaHref": "/services",
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

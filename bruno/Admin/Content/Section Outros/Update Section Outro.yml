@@ -1,0 +1,26 @@
+info:
+  name: Update Section Outro
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{base_url}}/admin/content/section-outros/{{section_outro_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Still have a",
+        "titleAccent": "question?",
+        "description": "WhatsApp us — we respond within 2 hours during business hours."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,18 @@
+﻿info:
+  name: Get Content Block By Id
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{base_url}}/admin/content/content-blocks/{{content_block_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

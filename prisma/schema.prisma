@@ -15,6 +15,7 @@ datasource db {
 enum FaqPage {
   MAIN
   ACADEMY
+  PACKAGES
 }
 
 enum UserRole {
@@ -26,6 +27,7 @@ enum OtpPurpose {
   EMAIL_VERIFICATION
 }
 
+// -- Auth --
 model User {
   id              String    @id @default(uuid())
   email           String    @unique
@@ -56,6 +58,8 @@ model OtpChallenge {
   @@index([email, purpose])
   @@map("otp_challenges")
 }
+
+// -- FAQ --
 
 // CREATE TABLE "faq_categories" (
 //   "id"         TEXT         NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -112,6 +116,7 @@ model Faq {
   @@map("faqs")
 }
 
+// -- Testimonials --
 model TestimonialCategory {
   id           String        @id @default(uuid())
   label        String
@@ -138,4 +143,198 @@ model Testimonial {
   updatedAt  DateTime            @updatedAt
 
   @@map("testimonials")
+}
+
+// -- Heroes --
+
+enum SitePage {
+  HOME
+  SERVICES
+  PACKAGES
+  GIFT_VOUCHERS
+  LOCATIONS
+  CORPORATE
+  ACADEMY
+  ABOUT
+  CAREERS
+  TESTIMONIALS
+  FAQ
+  TERMS
+  PRIVACY
+}
+
+model Hero {
+  id                String   @id @default(uuid())
+  page              SitePage @unique
+  eyebrow           String?
+  title             String
+  titleAccent       String?
+  tagline           String?
+  description       String?
+  notice            String?
+  imageUrl          String?
+  primaryCtaLabel   String?
+  primaryCtaHref    String?
+  secondaryCtaLabel String?
+  secondaryCtaHref  String?
+  highlights        String[] @default([])
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("heroes")
+}
+
+model SectionIntro {
+  id          String   @id @default(uuid())
+  page        SitePage
+  sectionKey  String
+  eyebrow     String?
+  title       String
+  titleAccent String?
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([page, sectionKey])
+  @@map("section_intros")
+}
+
+model SectionOutro {
+  id                String   @id @default(uuid())
+  page              SitePage @unique
+  eyebrow           String?
+  title             String
+  titleAccent       String?
+  description       String?
+  primaryCtaLabel   String?
+  primaryCtaHref    String?
+  secondaryCtaLabel String?
+  secondaryCtaHref  String?
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("section_outros")
+}
+
+// -- Legal pages (Terms, Privacy) --
+
+model LegalDocument {
+  id        String   @id @default(uuid())
+  page      SitePage @unique
+  content   String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("legal_documents")
+}
+
+// -- Rich HTML content blocks 
+
+model ContentBlock {
+  id         String   @id @default(uuid())
+  page       SitePage
+  sectionKey String
+  content    String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([page, sectionKey])
+  @@map("content_blocks")
+}
+
+// -- Milestone 
+
+model MilestoneStat {
+  id         String   @id @default(uuid())
+  page       SitePage
+  sectionKey String
+  value      String
+  label      String
+  sortOrder  Int
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([page, sectionKey, sortOrder])
+  @@map("milestone_stats")
+}
+
+// -- Shared CMS blocks --
+
+model OfferCard {
+  id          String   @id @default(uuid())
+  page        SitePage
+  sectionKey  String
+  name        String
+  imageUrl    String?
+  subtitle    String?
+  badge       String?
+  price       String
+  priceNote   String?
+  perks       String[] @default([])
+  ctaLabel    String?
+  ctaHref     String?
+  sortOrder   Int
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([page, sectionKey, sortOrder])
+  @@map("offer_cards")
+}
+
+model FeatureItem {
+  id          String   @id @default(uuid())
+  page        SitePage
+  sectionKey  String
+  title       String
+  description String?
+  content     String?
+  sortOrder   Int
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([page, sectionKey, sortOrder])
+  @@map("feature_items")
+}
+
+model StepItem {
+  id          String   @id @default(uuid())
+  page        SitePage
+  sectionKey  String
+  title       String
+  description String
+  sortOrder   Int
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([page, sectionKey, sortOrder])
+  @@map("step_items")
+}
+
+enum JobOpeningStatus {
+  ACTIVELY_HIRING
+  TALENT_POOL
+}
+
+model JobOpening {
+  id              String           @id @default(uuid())
+  title           String
+  status          JobOpeningStatus
+  employmentTypes String[]         @default([])
+  locations       String[]         @default([])
+  description     String
+  sortOrder       Int              @unique
+  isActive        Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  @@map("job_openings")
 }

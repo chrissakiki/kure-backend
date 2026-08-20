@@ -1,0 +1,29 @@
+info:
+  name: Create Step Item
+  type: http
+  seq: 20
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/content/step-items"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "PACKAGES",
+        "sectionKey": "PACKAGES_HOW_IT_WORKS",
+        "title": "Choose your package",
+        "description": "5 or 10 sessions — depending on how often you want to visit.",
+        "sortOrder": 1,
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

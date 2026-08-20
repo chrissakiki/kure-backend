@@ -1,0 +1,18 @@
+info:
+  name: Get Legal Document By Id
+  type: http
+  seq: 25
+
+http:
+  method: GET
+  url: "{{base_url}}/admin/content/legal-documents/{{legal_document_id}}"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

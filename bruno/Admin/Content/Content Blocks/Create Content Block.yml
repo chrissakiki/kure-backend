@@ -1,0 +1,27 @@
+﻿info:
+  name: Create Content Block
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/content/content-blocks"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "page": "ABOUT",
+        "sectionKey": "STORY",
+        "content": "<section class=\"content-section\"><h2>Where we come from.</h2><p>Story content...</p></section>",
+        "isActive": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
