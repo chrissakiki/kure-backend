@@ -1,19 +1,11 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
 import { JobOpeningStatus } from '../../generated/prisma/enums';
-import { asString } from '../../utils/helpers';
+import { asString, internalServerError } from '../../utils/helpers';
 import {
   buildPaginationMeta,
   getPagination,
 } from '../../utils/pagination';
-
-const internalServerError = (res: Response) =>
-  res.status(500).json({
-    error: {
-      message: 'Internal server error',
-      code: 'INTERNAL_SERVER_ERROR',
-    },
-  });
 
 const getJobOpenings = async (req: Request, res: Response) => {
   const status = asString(req.query.status) as JobOpeningStatus | undefined;

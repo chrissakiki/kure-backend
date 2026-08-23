@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
 import { SitePage } from '../../generated/prisma/enums';
-import { asString } from '../../utils/helpers';
+import { asString, internalServerError } from '../../utils/helpers';
 
 const getHeroes = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
@@ -14,12 +14,7 @@ const getHeroes = async (req: Request, res: Response) => {
 
     res.status(200).json({ data: result });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -39,12 +34,7 @@ const getHero = async (req: Request, res: Response) => {
 
     res.status(200).json({ data: result });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -83,12 +73,7 @@ const createHero = async (req: Request, res: Response) => {
 
     res.status(201).json({ data: result });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -126,12 +111,7 @@ const updateHero = async (req: Request, res: Response) => {
 
     res.status(200).json({ data: result });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -155,12 +135,7 @@ const deleteHero = async (req: Request, res: Response) => {
 
     res.status(200).json({ data: result });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 

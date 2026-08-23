@@ -5,7 +5,7 @@ import {
   FaqPage,
   SitePage,
 } from '../generated/prisma/enums';
-import { asString, formatNameList } from '../utils/helpers';
+import { asString, formatNameList, internalServerError } from '../utils/helpers';
 
 // -- FAQ --
 
@@ -36,12 +36,7 @@ const getFaqPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -77,12 +72,7 @@ const getTestimonialsPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -110,12 +100,7 @@ const getTermsPage = async (_req: Request, res: Response) => {
     const data = await getLegalPage(SitePage.TERMS);
     res.status(200).json({ data });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -124,12 +109,7 @@ const getPrivacyPage = async (_req: Request, res: Response) => {
     const data = await getLegalPage(SitePage.PRIVACY);
     res.status(200).json({ data });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -206,12 +186,7 @@ const getAboutPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -314,12 +289,7 @@ const getLocationsPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -370,12 +340,7 @@ const getGiftVouchersPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -440,12 +405,7 @@ const getPackagesPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -504,12 +464,7 @@ const getCareersPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -573,12 +528,7 @@ const getCorporatePage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -662,12 +612,7 @@ const getAcademyPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -736,12 +681,7 @@ const getServicesPage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -781,12 +721,7 @@ const getServiceCategoryPage = async (req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -908,12 +843,7 @@ const getHomePage = async (_req: Request, res: Response) => {
       },
     });
   } catch {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 

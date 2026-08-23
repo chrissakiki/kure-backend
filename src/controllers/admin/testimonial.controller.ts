@@ -1,25 +1,14 @@
 import { prisma } from '../../config/db';
 import { Request, Response } from 'express';
-import { asString } from '../../utils/helpers';
+import {
+  asString,
+  internalServerError,
+  parseOptionalBoolean,
+} from '../../utils/helpers';
 import {
   buildPaginationMeta,
   getPagination,
 } from '../../utils/pagination';
-
-const internalServerError = (res: Response) =>
-  res.status(500).json({
-    error: {
-      message: 'Internal server error',
-      code: 'INTERNAL_SERVER_ERROR',
-    },
-  });
-
-const parseOptionalBoolean = (value: unknown) => {
-  const raw = asString(value);
-  if (raw === 'true') return true;
-  if (raw === 'false') return false;
-  return undefined;
-};
 
 // GET /api/admin/testimonials — flat paginated rows
 const getTestimonials = async (req: Request, res: Response) => {

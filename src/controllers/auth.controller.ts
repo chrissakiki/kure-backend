@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import { OtpPurpose } from '../generated/prisma/enums';
 import { randomInt } from 'crypto';
 import { sendMail } from '../utils/mail';
+import { internalServerError } from '../utils/helpers';
 
  const login = async (req: Request, res: Response) => {
   const email = (req.body.email as string).toLowerCase().trim();
@@ -68,12 +69,7 @@ import { sendMail } from '../utils/mail';
       },
     });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -138,12 +134,7 @@ import { sendMail } from '../utils/mail';
       data: { message: 'Verification code sent' },
     });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -221,12 +212,7 @@ import { sendMail } from '../utils/mail';
       },
     });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 
@@ -241,12 +227,7 @@ import { sendMail } from '../utils/mail';
       data: { message: 'Logged out' },
     });
   } catch (error) {
-    res.status(500).json({
-      error: {
-        message: 'Internal server error',
-        code: 'INTERNAL_SERVER_ERROR',
-      },
-    });
+    return internalServerError(res);
   }
 };
 

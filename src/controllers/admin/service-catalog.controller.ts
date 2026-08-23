@@ -1,26 +1,15 @@
 import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
 import { CategoryPriceKind } from '../../generated/prisma/enums';
-import { asString } from '../../utils/helpers';
+import {
+  asString,
+  internalServerError,
+  parseOptionalBoolean,
+} from '../../utils/helpers';
 import {
   buildPaginationMeta,
   getPagination,
 } from '../../utils/pagination';
-
-const internalServerError = (res: Response) =>
-  res.status(500).json({
-    error: {
-      message: 'Internal server error',
-      code: 'INTERNAL_SERVER_ERROR',
-    },
-  });
-
-const parseOptionalBoolean = (value: unknown) => {
-  const raw = asString(value);
-  if (raw === 'true') return true;
-  if (raw === 'false') return false;
-  return undefined;
-};
 
 // -- Currency --
 
