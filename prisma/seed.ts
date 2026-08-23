@@ -619,6 +619,160 @@ const sectionIntroSeed = [
       'A straightforward process — designed to respect your time and ours.',
     isActive: true,
   },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'TWO_OCCASIONS',
+    eyebrow: 'TWO WAYS KURE ARRIVES',
+    title: 'One brand of care. Two occasions.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'CORPORATE_WELLNESS',
+    eyebrow: 'CORPORATE WELLNESS',
+    title: 'Wellness at work — measurable impact.',
+    description:
+      'Teams that recover perform better. Teams that feel cared for stay longer. The first and only wellness house delivering corporate programs at scale in Lebanon.',
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    eyebrow: 'WELLNESS EVENTS',
+    title: 'For every gathering that matters.',
+    description:
+      'Bridal, birthdays, retreats, and community moments — we bring the ritual to you.',
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    eyebrow: 'WE ARRIVE WITH EVERYTHING.',
+    title: 'You provide the space. We handle the rest.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WHY_PARTNERS',
+    eyebrow: null,
+    title: 'Why partners choose KURE.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'TRAINED_BY_KURE',
+    eyebrow: 'TRAINED BY KURE',
+    title: "The education arm of Lebanon's leading wellness ecosystem.",
+    description:
+      'KURE Academy trains the next generation of therapists — sharing the protocols, techniques, and philosophy that have shaped 20,000+ sessions across 8 years.\n\nEvery workshop is built on hands-on practice, grounded in science, and designed to elevate your skill and your career.',
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'WHAT_WE_TEACH',
+    eyebrow: 'WHAT WE TEACH',
+    title: 'Four categories. Two formats.',
+    description:
+      'Programs are built around four categories of technique — and delivered in two formats: a focused 4-hour Workshop, or a full 4-day Course.',
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_HOW_IT_WORKS',
+    eyebrow: 'FORMAT',
+    title: 'How KURE Academy works',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'CERTIFICATION',
+    eyebrow: 'CERTIFICATION',
+    title: 'Two certificates. One standard.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ENROLLMENT',
+    eyebrow: 'ENROLLMENT',
+    title: 'How to enroll.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'RECEIVE_CARE',
+    eyebrow: 'WHERE YOU CAN EXPERIENCE KURE',
+    title: 'Three ways to receive care.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'KURE_STANDARD',
+    eyebrow: 'THE KURE STANDARD',
+    title: 'Every session, held to a',
+    titleAccent: 'standard.',
+    description: null,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'CATEGORY_STANDARD',
+    eyebrow: 'THE KURE STANDARD',
+    title: 'Care, held to a',
+    titleAccent: 'standard.',
+    description:
+      'We strive for perfection every day, aiming the highest level of detail and offering the most exclusive experience.',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_PACKAGES',
+    eyebrow: 'THE KURE EXPERIENCE',
+    title: 'Three ways to experience KURE',
+    description:
+      'Choose the rhythm that fits your life — from a single session to a full package.',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_CATEGORIES',
+    eyebrow: 'SIGNATURE SERVICES',
+    title: 'Four categories, protocol by protocol',
+    description:
+      'Every service at KURE lives inside one of four signature categories — built on trained technique, not improvisation.',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_HOW_IT_WORKS',
+    eyebrow: 'HOW IT WORKS',
+    title: 'Three steps to your session',
+    description: 'Booking KURE is intentional — like the experience itself.',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_BEYOND',
+    eyebrow: 'BEYOND INDIVIDUAL SESSIONS',
+    title: 'By KURE.',
+    description:
+      'Three ways KURE brings wellness to teams, gatherings, and future therapists.',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_TESTIMONIALS',
+    eyebrow: 'IN THEIR WORDS',
+    title: 'What our clients say',
+    description: 'Real reviews from real KURE members and one-off clients.',
+    isActive: true,
+  },
 ];
 
 const sectionOutroSeed = [
@@ -723,6 +877,17 @@ const sectionOutroSeed = [
     primaryCtaHref: 'https://wa.me/96179424701',
     secondaryCtaLabel: null,
     secondaryCtaHref: null,
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    title: 'Your body is',
+    titleAccent: 'asking.',
+    description: 'Reconnect with yourself — one session at a time.',
+    primaryCtaLabel: 'BOOK YOUR SESSION',
+    primaryCtaHref: '$OPEN_BOOKING_MODAL',
+    secondaryCtaLabel: 'VIEW PACKAGES',
+    secondaryCtaHref: '/packages',
     isActive: true,
   },
 ];
@@ -1149,6 +1314,108 @@ const offerCardSeed = [
     ctaHref: '/services?location=verdun',
     isActive: true,
   },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_BEYOND',
+    sortOrder: 1,
+    name: 'KURE Academy',
+    imageUrl: null,
+    subtitle:
+      'Practical wellness workshops for therapists, wellness professionals, and anyone drawn to the art of bodywork.',
+    badge: 'TRAINING · CERTIFICATION',
+    price: '',
+    priceNote: 'BY KURE',
+    perks: [
+      'Body massage & lymphatic drainage',
+      'Slimming & body sculpting',
+      'Theory + hands-on + certificate',
+    ],
+    ctaLabel: 'RESERVE YOUR SPOT',
+    ctaHref: '/academy',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_BEYOND',
+    sortOrder: 2,
+    name: 'Corporate Wellness',
+    imageUrl: null,
+    subtitle:
+      "On-site wellness services designed to reduce stress, improve recovery, and support your team's wellbeing.",
+    badge: 'ON-SITE · FOR TEAMS',
+    price: '',
+    priceNote: 'BY KURE',
+    perks: [
+      'Employee wellness days',
+      'Office recovery sessions',
+      'Customized programs',
+    ],
+    ctaLabel: 'PLAN YOUR PROGRAM',
+    ctaHref: '/corporate',
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_BEYOND',
+    sortOrder: 3,
+    name: 'Wellness Events',
+    imageUrl: null,
+    subtitle:
+      'Elevated wellness experiences delivered at your gathering — bridal, birthdays, or corporate retreats.',
+    badge: 'PRIVATE · CURATED',
+    price: '',
+    priceNote: 'BY KURE',
+    perks: [
+      'Bridal & bachelorette days',
+      'Sports & community events',
+      'Therapists, beds & custom setups',
+    ],
+    ctaLabel: 'PLAN YOUR EXPERIENCE',
+    ctaHref: '/corporate',
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'TWO_OCCASIONS',
+    sortOrder: 1,
+    name: 'Corporate Wellness',
+    imageUrl: null,
+    subtitle:
+      'On-site programs for teams — reduce stress, improve recovery, support wellbeing.',
+    badge: null,
+    price: '',
+    priceNote: null,
+    perks: [
+      'Employee wellness days',
+      'Office recovery sessions',
+      'Wellness weeks',
+      'Customized ongoing programs',
+    ],
+    ctaLabel: 'EXPLORE CORPORATE',
+    ctaHref: '#corporate-wellness',
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'TWO_OCCASIONS',
+    sortOrder: 2,
+    name: 'Wellness Events',
+    imageUrl: null,
+    subtitle:
+      'Curated experiences delivered at your gathering — bridal, birthdays, retreats.',
+    badge: null,
+    price: '',
+    priceNote: null,
+    perks: [
+      'Bridal & bachelorette days',
+      'Milestone birthdays',
+      'Sports & community events',
+      'Corporate retreats & private parties',
+    ],
+    ctaLabel: 'EXPLORE EVENTS',
+    ctaHref: '#wellness-events',
+    isActive: true,
+  },
 ];
 
 const featureItemSeed = [
@@ -1449,6 +1716,280 @@ const featureItemSeed = [
     sortOrder: 6,
     isActive: true,
   },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'CORPORATE_WELLNESS',
+    title: 'Employee Wellness Days',
+    description:
+      'A full day of on-site massage and recovery — 30-min slots for your team.',
+    content: null,
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'CORPORATE_WELLNESS',
+    title: 'Office Recovery Sessions',
+    description:
+      '15–30 min chair massage during work hours. Recurring or one-off.',
+    content: null,
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'CORPORATE_WELLNESS',
+    title: 'Wellness Weeks & Custom Programs',
+    description:
+      'Curated week-long programming or ongoing multi-month partnerships tailored to your team.',
+    content: null,
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Bridal & Bachelorette',
+    description: null,
+    content: null,
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Milestone Birthdays',
+    description: null,
+    content: null,
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: "Ladies' Gatherings",
+    description: null,
+    content: null,
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Corporate Retreats',
+    description: null,
+    content: null,
+    sortOrder: 4,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Sports & Community Events',
+    description: null,
+    content: null,
+    sortOrder: 5,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Private Parties',
+    description: null,
+    content: null,
+    sortOrder: 6,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Custom Occasions',
+    description: null,
+    content: null,
+    sortOrder: 7,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WELLNESS_EVENTS',
+    title: 'Anything worth marking',
+    description: null,
+    content: null,
+    sortOrder: 8,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    title: '2–5 KURE-trained therapists in uniform',
+    description: null,
+    content: null,
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    title: 'Portable beds, chairs, oils, tools',
+    description: null,
+    content: null,
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    title: 'Music, scent, ambient setup',
+    description: null,
+    content: null,
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    title: 'Setup + teardown handled',
+    description: null,
+    content: null,
+    sortOrder: 4,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    title: 'Custom experience per event',
+    description: null,
+    content: null,
+    sortOrder: 5,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WHY_PARTNERS',
+    title:
+      'First and only wellness house delivering corporate programs at scale in Lebanon',
+    description: null,
+    content: null,
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WHY_PARTNERS',
+    title: 'World Massage Federation members',
+    description: null,
+    content: null,
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WHY_PARTNERS',
+    title: 'KURE-trained therapists — not freelance contractors',
+    description: null,
+    content: null,
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'WHY_PARTNERS',
+    title: '8 years of professional care',
+    description: null,
+    content: null,
+    sortOrder: 4,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_FORMATS',
+    title: 'Workshop · 4 hours',
+    description:
+      'Introductory session — protocols, technique preview, hands-on demo. Certificate of Participation.',
+    content: 'FORMAT A',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_FORMATS',
+    title: 'Course · 4 days',
+    description:
+      'Full certification — theory + hands-on + practical assessment. Certificate of Completion.',
+    content: 'FORMAT B',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_CATEGORIES',
+    title: 'Facial Lifting Massages',
+    description:
+      'Madero Wood and Iced Madero techniques for facial lifting, contouring, and rejuvenation.',
+    content: 'CATEGORY 01 · FACIAL LIFTING',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_CATEGORIES',
+    title: 'Slimming & Drainage',
+    description:
+      'Lymphatic Drainage, Cellulite Removal, and Brazilian Sculpting — body-shaping protocols that deliver.',
+    content: 'CATEGORY 02 · SLIMMING & DRAINAGE',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_CATEGORIES',
+    title: 'Body Massages',
+    description:
+      'Relaxing, Deep Tissue, Pregnancy, and In-Home techniques — the foundations of professional bodywork.',
+    content: 'CATEGORY 03 · BODY MASSAGES',
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_CATEGORIES',
+    title: 'Sports Recovery',
+    description:
+      'Stretching Therapy and recovery-focused bodywork for athletes and active bodies.',
+    content: 'CATEGORY 04 · SPORTS RECOVERY',
+    sortOrder: 4,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'RECEIVE_CARE',
+    title: 'In-Home',
+    description:
+      'Same protocols, delivered at your home. Transportation included within our coverage zones.',
+    content: null,
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'RECEIVE_CARE',
+    title: 'KURE Dbayeh',
+    description:
+      'Our private wellness house — massage, drainage, facial rituals, and body care.',
+    content: null,
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'RECEIVE_CARE',
+    title: 'KURE Verdun',
+    description:
+      'Recovery, stretching, massage, and bodywork in our Verdun space.',
+    content: null,
+    sortOrder: 3,
+    isActive: true,
+  },
 ];
 
 const contentBlockSeed = [
@@ -1529,6 +2070,62 @@ const contentBlockSeed = [
     content:
       '<p><a href="https://wa.me/96176577070">Don\'t see your area? Contact us to check availability →</a></p>',
   },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'WHAT_WE_TEACH_NOTE',
+    isActive: true,
+    content:
+      '<p><em>Bespoke durations, private cohorts, and multi-category programs available upon request.</em></p>',
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_CATEGORY_FOOTER',
+    isActive: true,
+    content: 'Workshop (4h) · Course (4 days) · or custom',
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'CERTIFICATION',
+    isActive: true,
+    content: `
+<p><strong>Certificate of Participation</strong> — awarded at the end of every Workshop. Confirms attendance and exposure to the KURE method.</p>
+<p><strong>Certificate of Completion</strong> — awarded at the end of every Course. Confirms assessed competence in the technique taught.</p>
+<p><em>Both carry the KURE Academy mark. Selected courses sit within the World Massage Federation ecosystem.</em></p>
+`.trim(),
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_METHOD',
+    isActive: true,
+    content: `
+<p><strong>◆ About the KURE method</strong></p>
+<p>The techniques, sequences, and protocols taught at KURE Academy are the intellectual property of KURE. They represent years of refinement across 20,000+ client sessions.</p>
+<p><strong>Students may not:</strong></p>
+<ul>
+  <li>Teach or re-teach KURE sequences under any other brand name</li>
+  <li>Reproduce training materials for commercial use</li>
+  <li>Claim KURE certification for techniques not taught by KURE Academy</li>
+</ul>
+<p>Personal practice and client work using what you've learned is encouraged. Formal teaching agreements are available for qualified graduates.</p>
+`.trim(),
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'RECEIVE_CARE_NOTE',
+    isActive: true,
+    content:
+      '<p><em>Some treatments are exclusive to our wellness houses. See treatment notes above.</em></p>',
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'KURE_STANDARD',
+    isActive: true,
+    content: `
+<p>Every KURE protocol is developed and continuously refined by our Research &amp; Development Team since 2018.</p>
+<p>Our methods sit within the World Massage Federation ecosystem — accredited standards, not improvised technique.</p>
+<p>All therapists are trained and supervised by KURE — the same hands that built the method deliver your session.</p>
+`.trim(),
+  },
 ];
 
 const milestoneStatSeed = [
@@ -1570,6 +2167,62 @@ const milestoneStatSeed = [
     value: '2',
     label: 'WELLNESS HOUSES',
     sortOrder: 5,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    value: '4-8',
+    label: 'INTIMATE',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    value: '10-15',
+    label: 'CURATED',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    value: '20-30',
+    label: 'SIGNATURE',
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'CORPORATE' as const,
+    sectionKey: 'ON_SITE_DELIVERY',
+    value: '30+',
+    label: 'GRAND',
+    sortOrder: 4,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'KURE_STANDARD',
+    value: '2018',
+    label: 'R&D SINCE',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'KURE_STANDARD',
+    value: 'WMF',
+    label: 'ACCREDITED PROTOCOLS',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'SERVICES' as const,
+    sectionKey: 'KURE_STANDARD',
+    value: '18',
+    label: 'KURE-TRAINED THERAPISTS',
+    sortOrder: 3,
     isActive: true,
   },
 ];
@@ -1727,7 +2380,415 @@ const stepItemSeed = [
     sortOrder: 4,
     isActive: true,
   },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_HOW_IT_WORKS',
+    title: 'Theory',
+    description:
+      'Understand the technique, the science, and the anatomy. Foundations you can build a career on.',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_HOW_IT_WORKS',
+    title: 'Hands-On',
+    description:
+      'Practice under KURE-trained trainers. Real feedback. Real skill.',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ACADEMY_HOW_IT_WORKS',
+    title: 'Certificate',
+    description:
+      'Receive KURE Academy certification. Recognized across our ecosystem and beyond.',
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ENROLLMENT',
+    title: 'See Calendar',
+    description: 'Current dates on Instagram @kure.lb',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ENROLLMENT',
+    title: 'Register',
+    description: 'Form below or WhatsApp us',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ENROLLMENT',
+    title: 'Confirm',
+    description: 'Enrollment details + materials',
+    sortOrder: 3,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ENROLLMENT',
+    title: 'Pay Deposit',
+    description: 'Secures your seat',
+    sortOrder: 4,
+    isActive: true,
+  },
+  {
+    page: 'ACADEMY' as const,
+    sectionKey: 'ENROLLMENT',
+    title: 'Show Up',
+    description: "Bring a beginner's mind",
+    sortOrder: 5,
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_HOW_IT_WORKS',
+    title: 'Choose your service',
+    description: 'Pick a session or a package. Any signature service, any duration.',
+    sortOrder: 1,
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_HOW_IT_WORKS',
+    title: 'Tell us where',
+    description: 'In your home, at KURE Dbayeh, or at KURE Verdun.',
+    sortOrder: 2,
+    isActive: true,
+  },
+  {
+    page: 'HOME' as const,
+    sectionKey: 'HOME_HOW_IT_WORKS',
+    title: 'Enjoy your session',
+    description: "Your therapist arrives on time. You reconnect. That's it.",
+    sortOrder: 3,
+    isActive: true,
+  },
 ];
+
+const serviceCatalogSeed = {
+  currency: {
+    code: 'USD',
+    symbol: '$',
+    name: 'US Dollar',
+  },
+  categories: [
+    {
+      name: 'Facial Lifting Massages',
+      slug: 'facial-lifting-massages',
+      eyebrow: 'CATEGORY 01 · ANTI-AGING',
+      titleAccent: 'Massages',
+      subtitle:
+        'Madero-inspired lifting techniques for tone, lift, and radiance.',
+      introEyebrow: 'JEUNESSE ET VITALITÉ',
+      tagline: 'Longevity is a journey that starts here.',
+      pricingSubtitle:
+        'Single sessions when you need them — packages when you want consistency and better value.',
+      note: 'Package sessions are redeemable In-Home or in-clinic. Any bonus/free session is in-clinic only.',
+      cardBlurb: 'Techniques for lift, glow, and definition.',
+      imageUrl: null,
+      highlights: [
+        '40-minute anti-aging facial lifting session',
+        '5-session youth enhancement package — slows visible aging with consistent care',
+      ],
+      sortOrder: 1,
+      services: [
+        {
+          name: 'Facial Madero wood',
+          description:
+            'Facial sculpting using anatomically shaped wooden tools — targeted lift and definition.',
+          badge: null,
+          sortOrder: 1,
+        },
+        {
+          name: 'Facial Iced Madero',
+          description:
+            'Cold Madero technique that firms, decongests, and awakens the skin.',
+          badge: null,
+          sortOrder: 2,
+        },
+      ],
+      prices: [
+        {
+          label: '40 min',
+          description: 'Single',
+          price: 45,
+          kind: 'SINGLE' as const,
+          sortOrder: 1,
+        },
+        {
+          label: '5 sessions',
+          description: '+1 Free Facial',
+          price: 200,
+          kind: 'PACKAGE' as const,
+          sortOrder: 2,
+        },
+      ],
+      addons: [],
+    },
+    {
+      name: 'Slimming & Drainage',
+      slug: 'slimming-drainage',
+      eyebrow: 'CATEGORY 02 · BODY SCULPTING',
+      titleAccent: null,
+      subtitle:
+        'Body sculpting, cellulite reduction, and lymphatic drainage — visible results, session by session.',
+      introEyebrow: null,
+      tagline: null,
+      pricingSubtitle:
+        'Single sessions when you need them — packages when you want consistency and better value.',
+      note: '5-session package includes +1 Free Facial. 10-session package includes +1 Free Session. Bonuses are in-clinic only. All other package sessions redeemable In-Home or in-clinic.',
+      cardBlurb: 'Techniques for sculpt, drain, and redefine.',
+      imageUrl: null,
+      highlights: [
+        '50-minute body sculpting and drainage session',
+        'Packages for consistent visible results',
+      ],
+      sortOrder: 2,
+      services: [
+        {
+          name: 'Lymphatic Drainage',
+          description:
+            'Manual lymphatic technique to reduce retention, decongest tissue, and support circulation.',
+          badge: null,
+          sortOrder: 1,
+        },
+        {
+          name: 'Manual Cellulite Removal',
+          description:
+            'Targeted manual work to break down cellulite and improve skin texture.',
+          badge: null,
+          sortOrder: 2,
+        },
+        {
+          name: 'Madero Wood Therapy',
+          description:
+            'Sculpting with anatomically shaped wooden tools — contour and tone.',
+          badge: null,
+          sortOrder: 3,
+        },
+        {
+          name: 'Iced Madero Therapy',
+          description:
+            'Cold wood technique that firms, decongests, and refreshes the body.',
+          badge: null,
+          sortOrder: 4,
+        },
+        {
+          name: 'Brazilian Sculpting',
+          description:
+            'Signature sculpting protocol for shape, lift, and definition.',
+          badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
+          sortOrder: 5,
+        },
+        {
+          name: 'Gut Therapy',
+          description:
+            'Abdominal-focused work to support digestion, release, and core comfort.',
+          badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
+          sortOrder: 6,
+        },
+      ],
+      prices: [
+        {
+          label: '50 min',
+          description: 'Single',
+          price: 65,
+          kind: 'SINGLE' as const,
+          sortOrder: 1,
+        },
+        {
+          label: '5 sessions',
+          description: '+1 Free Facial',
+          price: 275,
+          kind: 'PACKAGE' as const,
+          sortOrder: 2,
+        },
+        {
+          label: '10 sessions',
+          description: '+1 Free Session',
+          price: 500,
+          kind: 'PACKAGE' as const,
+          sortOrder: 3,
+        },
+      ],
+      addons: [
+        {
+          name: 'KURE Cellulite Oil',
+          description: null,
+          price: 30,
+          sortOrder: 1,
+        },
+        {
+          name: 'Active Madero',
+          description: null,
+          price: 20,
+          sortOrder: 2,
+        },
+      ],
+    },
+    {
+      name: 'Body Massages',
+      slug: 'body-massages',
+      eyebrow: 'CATEGORY 03 · BODYWORK',
+      titleAccent: null,
+      subtitle:
+        'Full-body relaxation, tension release, and specialized care — tailored to your rhythm.',
+      introEyebrow: null,
+      tagline: null,
+      pricingSubtitle:
+        'Single sessions when you need them — packages when you want consistency and better value.',
+      note: '5-session package includes +1 Free Facial. 10-session package includes +1 Free Session. Bonuses are in-clinic only. All other package sessions redeemable In-Home or in-clinic.',
+      cardBlurb: null,
+      imageUrl: null,
+      highlights: [
+        '50 or 80-minute signature body massage',
+        'Packages for lasting rhythm and better value',
+      ],
+      sortOrder: 3,
+      services: [
+        {
+          name: 'Relaxing Massage',
+          description:
+            'Full-body relaxation to release tension and restore calm.',
+          badge: null,
+          sortOrder: 1,
+        },
+        {
+          name: 'Deep Tissue Massage',
+          description:
+            'Focused pressure for chronic tension and deeper muscle release.',
+          badge: null,
+          sortOrder: 2,
+        },
+        {
+          name: 'Pregnancy Massage',
+          description:
+            'Adapted bodywork for comfort and relief during pregnancy.',
+          badge: null,
+          sortOrder: 3,
+        },
+        {
+          name: 'In-Home Couples Massage',
+          description:
+            'Two therapists, side-by-side signature massage at home.',
+          badge: 'IN-HOME ONLY · $120 FOR BOTH',
+          sortOrder: 4,
+        },
+      ],
+      prices: [
+        {
+          label: '50 min',
+          description: 'Single',
+          price: 65,
+          kind: 'SINGLE' as const,
+          sortOrder: 1,
+        },
+        {
+          label: '80 min',
+          description: 'Single',
+          price: 90,
+          kind: 'SINGLE' as const,
+          sortOrder: 2,
+        },
+        {
+          label: '5 sessions',
+          description: '+1 Free Facial',
+          price: 275,
+          kind: 'PACKAGE' as const,
+          sortOrder: 3,
+        },
+        {
+          label: '10 sessions',
+          description: '+1 Free Session',
+          price: 500,
+          kind: 'PACKAGE' as const,
+          sortOrder: 4,
+        },
+      ],
+      addons: [
+        {
+          name: 'Stretching',
+          description: '20 min add-on',
+          price: 20,
+          sortOrder: 1,
+        },
+        {
+          name: 'Facial',
+          description: '20 min add-on',
+          price: 20,
+          sortOrder: 2,
+        },
+        {
+          name: 'Hand & Foot Reflexology',
+          description: '20 min add-on',
+          price: 20,
+          sortOrder: 3,
+        },
+      ],
+    },
+    {
+      name: 'Sports Recovery',
+      slug: 'sports-recovery',
+      eyebrow: 'CATEGORY 04 · RECOVERY',
+      titleAccent: null,
+      subtitle:
+        'Targeted recovery for athletes and active bodies — faster recovery, better performance.',
+      introEyebrow: null,
+      tagline: null,
+      pricingSubtitle:
+        'Single sessions when you need them — recovery priced for performance.',
+      note: null,
+      cardBlurb: null,
+      imageUrl: null,
+      highlights: [
+        '50 or 70-minute recovery-focused session',
+        'Built for athletes and active bodies',
+      ],
+      sortOrder: 4,
+      services: [
+        {
+          name: 'Stretching Therapy',
+          description:
+            'Assisted full-body stretching for flexibility, joint mobility, and injury prevention.',
+          badge: null,
+          sortOrder: 1,
+        },
+        {
+          name: 'Sports Massage',
+          description:
+            'Deep, targeted release for athletes — faster recovery, better performance.',
+          badge: null,
+          sortOrder: 2,
+        },
+      ],
+      prices: [
+        {
+          label: '50 min',
+          description: 'Single',
+          price: 55,
+          kind: 'SINGLE' as const,
+          sortOrder: 1,
+        },
+        {
+          label: '70 min',
+          description: 'Single',
+          price: 75,
+          kind: 'SINGLE' as const,
+          sortOrder: 2,
+        },
+      ],
+      addons: [],
+    },
+  ],
+};
 
 const jobOpeningSeed = [
   {
@@ -1908,6 +2969,76 @@ async function main() {
   });
 
   console.log(`Seeded ${jobOpeningSeed.length} job openings.`);
+
+  await prisma.categoryAddon.deleteMany();
+  await prisma.categoryPrice.deleteMany();
+  await prisma.service.deleteMany();
+  await prisma.serviceCategory.deleteMany();
+  await prisma.currency.deleteMany();
+
+  const currency = await prisma.currency.create({
+    data: {
+      code: serviceCatalogSeed.currency.code,
+      symbol: serviceCatalogSeed.currency.symbol,
+      name: serviceCatalogSeed.currency.name,
+      isActive: true,
+    },
+  });
+
+  for (const category of serviceCatalogSeed.categories) {
+    await prisma.serviceCategory.create({
+      data: {
+        name: category.name,
+        slug: category.slug,
+        eyebrow: category.eyebrow,
+        titleAccent: category.titleAccent,
+        subtitle: category.subtitle,
+        introEyebrow: category.introEyebrow,
+        tagline: category.tagline,
+        pricingSubtitle: category.pricingSubtitle,
+        note: category.note,
+        cardBlurb: category.cardBlurb,
+        imageUrl: category.imageUrl,
+        highlights: category.highlights,
+        currencyId: currency.id,
+        sortOrder: category.sortOrder,
+        isActive: true,
+        services: {
+          create: category.services.map((service) => ({
+            name: service.name,
+            description: service.description,
+            imageUrl: null,
+            badge: service.badge,
+            sortOrder: service.sortOrder,
+            isActive: true,
+          })),
+        },
+        prices: {
+          create: category.prices.map((price) => ({
+            label: price.label,
+            description: price.description,
+            price: price.price,
+            kind: price.kind,
+            sortOrder: price.sortOrder,
+            isActive: true,
+          })),
+        },
+        addons: {
+          create: category.addons.map((addon) => ({
+            name: addon.name,
+            description: addon.description,
+            price: addon.price,
+            sortOrder: addon.sortOrder,
+            isActive: true,
+          })),
+        },
+      },
+    });
+  }
+
+  console.log(
+    `Seeded ${serviceCatalogSeed.categories.length} service categories with currency ${currency.code}.`,
+  );
 }
 
 main()

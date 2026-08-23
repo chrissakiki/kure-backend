@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { JobOpeningStatus } from '../generated/prisma/enums';
+import { paginationQueryFields } from '../utils/pagination';
 
 const idParam = z.object({
   id: z.uuid(),
@@ -22,6 +23,7 @@ const jobOpeningBody = z.object({
 
 export const getJobOpeningsSchema = z.object({
   query: z.object({
+    ...paginationQueryFields,
     status: z.enum(JobOpeningStatus).optional(),
   }),
 });

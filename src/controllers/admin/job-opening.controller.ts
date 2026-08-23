@@ -2,6 +2,10 @@ import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
 import { JobOpeningStatus } from '../../generated/prisma/enums';
 import { asString } from '../../utils/helpers';
+import {
+  buildPaginationMeta,
+  getPagination,
+} from '../../utils/pagination';
 
 const internalServerError = (res: Response) =>
   res.status(500).json({
@@ -13,14 +17,28 @@ const internalServerError = (res: Response) =>
 
 const getJobOpenings = async (req: Request, res: Response) => {
   const status = asString(req.query.status) as JobOpeningStatus | undefined;
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.jobOpening.findMany({
-      where: status ? { status } : undefined,
-      orderBy: { sortOrder: 'asc' },
-    });
+    const where = status ? { status } : undefined;
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.jobOpening.findMany({
+        where,
+        orderBy: { sortOrder: 'asc' },
+        skip,
+        take: limit,
+      }),
+      prisma.jobOpening.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }

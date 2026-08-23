@@ -1,12 +1,9 @@
 import { z } from 'zod';
 import { FaqPage } from '../generated/prisma/enums';
+import { paginationQueryFields } from '../utils/pagination';
 
 const idParam = z.object({
   id: z.uuid(),
-});
-
-const pageQuery = z.object({
-  page: z.enum(FaqPage).optional(),
 });
 
 const faqBody = z.object({
@@ -33,7 +30,12 @@ const atLeastOneField = <T extends z.ZodObject<z.ZodRawShape>>(schema: T) =>
 // ——— FAQs ———
 
 export const getFaqsSchema = z.object({
-  query: pageQuery,
+  query: z.object({
+    ...paginationQueryFields,
+    faqPage: z.enum(FaqPage).optional(),
+    categoryId: z.uuid().optional(),
+    isActive: z.enum(['true', 'false']).optional(),
+  }),
 });
 
 export const getFaqSchema = z.object({
@@ -58,11 +60,17 @@ export const deleteFaqSchema = z.object({
 // ——— FAQ categories ———
 
 export const getFaqCategoriesSchema = z.object({
-  query: pageQuery,
+  query: z.object({
+    faqPage: z.enum(FaqPage).optional(),
+    includeFaqs: z.enum(['true', 'false']).optional(),
+  }),
 });
 
 export const getFaqCategorySchema = z.object({
   params: idParam,
+  query: z.object({
+    includeFaqs: z.enum(['true', 'false']).optional(),
+  }),
 });
 
 export const createFaqCategorySchema = z.object({

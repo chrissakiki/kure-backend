@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { paginationQueryFields } from '../utils/pagination';
 
 const idParam = z.object({
   id: z.uuid(),
@@ -27,6 +28,14 @@ const atLeastOneField = <T extends z.ZodObject<z.ZodRawShape>>(schema: T) =>
 
 // ——— Testimonials ———
 
+export const getTestimonialsSchema = z.object({
+  query: z.object({
+    ...paginationQueryFields,
+    categoryId: z.uuid().optional(),
+    isActive: z.enum(['true', 'false']).optional(),
+  }),
+});
+
 export const getTestimonialSchema = z.object({
   params: idParam,
 });
@@ -48,8 +57,17 @@ export const deleteTestimonialSchema = z.object({
 
 // ——— Testimonial categories ———
 
+export const getTestimonialCategoriesSchema = z.object({
+  query: z.object({
+    includeTestimonials: z.enum(['true', 'false']).optional(),
+  }),
+});
+
 export const getTestimonialCategorySchema = z.object({
   params: idParam,
+  query: z.object({
+    includeTestimonials: z.enum(['true', 'false']).optional(),
+  }),
 });
 
 export const createTestimonialCategorySchema = z.object({

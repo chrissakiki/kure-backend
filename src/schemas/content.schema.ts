@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { SitePage } from '../generated/prisma/enums';
+import { paginationQueryFields } from '../utils/pagination';
 
 const idParam = z.object({
   id: z.uuid(),
@@ -57,6 +58,7 @@ const stepItemBody = z.object({
 
 const contentQuerySchema = z.object({
   query: z.object({
+    ...paginationQueryFields,
     page: z.enum(SitePage).optional(),
     sectionKey: z.string().min(1).optional(),
   }),

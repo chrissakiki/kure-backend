@@ -338,3 +338,101 @@ model JobOpening {
 
   @@map("job_openings")
 }
+
+// -- Services catalog --
+
+model Currency {
+  id         String            @id @default(uuid())
+  code       String            @unique
+  symbol     String
+  name       String
+  isActive   Boolean           @default(true)
+  categories ServiceCategory[]
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  @@map("currencies")
+}
+
+model ServiceCategory {
+  id              String          @id @default(uuid())
+  name            String
+  slug            String          @unique
+  eyebrow         String
+  titleAccent     String?
+  subtitle        String
+  introEyebrow    String?
+  tagline         String?
+  pricingSubtitle String?
+  note            String?
+  cardBlurb       String?
+  imageUrl        String?
+  highlights      String[]        @default([])
+  currencyId      String
+  currency        Currency        @relation(fields: [currencyId], references: [id])
+  sortOrder       Int
+  isActive        Boolean         @default(true)
+  services        Service[]
+  prices          CategoryPrice[]
+  addons          CategoryAddon[]
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  @@index([sortOrder])
+  @@map("service_categories")
+}
+
+model Service {
+  id          String          @id @default(uuid())
+  categoryId  String
+  category    ServiceCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  name        String
+  description String
+  imageUrl    String?
+  badge       String?
+  sortOrder   Int
+  isActive    Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@unique([categoryId, sortOrder])
+  @@map("services")
+}
+
+enum CategoryPriceKind {
+  SINGLE
+  PACKAGE
+}
+
+model CategoryPrice {
+  id          String            @id @default(uuid())
+  categoryId  String
+  category    ServiceCategory   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  label       String
+  description String?
+  price       Int
+  kind        CategoryPriceKind
+  sortOrder   Int
+  isActive    Boolean           @default(true)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@unique([categoryId, sortOrder])
+  @@map("category_prices")
+}
+
+model CategoryAddon {
+  id          String          @id @default(uuid())
+  categoryId  String
+  category    ServiceCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  name        String
+  description String?
+  price       Int
+  sortOrder   Int
+  isActive    Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@unique([categoryId, sortOrder])
+  @@map("category_addons")
+}

@@ -9,3 +9,12 @@ export const getLocationsPageSchema = z.object({});
 export const getGiftVouchersPageSchema = z.object({});
 export const getPackagesPageSchema = z.object({});
 export const getCareersPageSchema = z.object({});
+export const getCorporatePageSchema = z.object({});
+export const getAcademyPageSchema = z.object({});
+export const getServicesPageSchema = z.object({});
+export const getHomePageSchema = z.object({});
+export const getServiceCategoryPageSchema = z.object({
+  params: z.object({
+    slug: z.string().min(1),
+  }),
+});

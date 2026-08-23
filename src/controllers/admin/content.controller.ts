@@ -2,6 +2,10 @@ import { Request, Response } from 'express';
 import { prisma } from '../../config/db';
 import { SitePage } from '../../generated/prisma/enums';
 import { asString } from '../../utils/helpers';
+import {
+  buildPaginationMeta,
+  getPagination,
+} from '../../utils/pagination';
 
 const internalServerError = (res: Response) =>
   res.status(500).json({
@@ -14,17 +18,31 @@ const internalServerError = (res: Response) =>
 const getSectionIntros = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
   const sectionKey = asString(req.query.sectionKey);
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.sectionIntro.findMany({
-      where: {
-        page,
-        sectionKey,
-      },
-      orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { createdAt: 'asc' }],
-    });
+    const where = {
+      page,
+      sectionKey,
+    };
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.sectionIntro.findMany({
+        where,
+        orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { createdAt: 'asc' }],
+        skip,
+        take: limit,
+      }),
+      prisma.sectionIntro.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }
@@ -151,17 +169,31 @@ const deleteSectionIntro = async (req: Request, res: Response) => {
 const getOfferCards = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
   const sectionKey = asString(req.query.sectionKey);
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.offerCard.findMany({
-      where: {
-        page,
-        sectionKey,
-      },
-      orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
-    });
+    const where = {
+      page,
+      sectionKey,
+    };
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.offerCard.findMany({
+        where,
+        orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
+        skip,
+        take: limit,
+      }),
+      prisma.offerCard.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }
@@ -284,17 +316,31 @@ const deleteOfferCard = async (req: Request, res: Response) => {
 const getFeatureItems = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
   const sectionKey = asString(req.query.sectionKey);
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.featureItem.findMany({
-      where: {
-        page,
-        sectionKey,
-      },
-      orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
-    });
+    const where = {
+      page,
+      sectionKey,
+    };
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.featureItem.findMany({
+        where,
+        orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
+        skip,
+        take: limit,
+      }),
+      prisma.featureItem.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }
@@ -416,17 +462,31 @@ const deleteFeatureItem = async (req: Request, res: Response) => {
 const getStepItems = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
   const sectionKey = asString(req.query.sectionKey);
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.stepItem.findMany({
-      where: {
-        page,
-        sectionKey,
-      },
-      orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
-    });
+    const where = {
+      page,
+      sectionKey,
+    };
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.stepItem.findMany({
+        where,
+        orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
+        skip,
+        take: limit,
+      }),
+      prisma.stepItem.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }
@@ -677,17 +737,31 @@ const updateLegalDocument = async (req: Request, res: Response) => {
 const getContentBlocks = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
   const sectionKey = asString(req.query.sectionKey);
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.contentBlock.findMany({
-      where: {
-        page,
-        sectionKey,
-      },
-      orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { createdAt: 'asc' }],
-    });
+    const where = {
+      page,
+      sectionKey,
+    };
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.contentBlock.findMany({
+        where,
+        orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { createdAt: 'asc' }],
+        skip,
+        take: limit,
+      }),
+      prisma.contentBlock.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }
@@ -810,17 +884,31 @@ const deleteContentBlock = async (req: Request, res: Response) => {
 const getMilestoneStats = async (req: Request, res: Response) => {
   const page = asString(req.query.page) as SitePage | undefined;
   const sectionKey = asString(req.query.sectionKey);
+  const { pageNumber, limit, skip } = getPagination({
+    pageNumber: req.query.pageNumber as number | undefined,
+    limit: req.query.limit as number | undefined,
+  });
 
   try {
-    const result = await prisma.milestoneStat.findMany({
-      where: {
-        page,
-        sectionKey,
-      },
-      orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
-    });
+    const where = {
+      page,
+      sectionKey,
+    };
 
-    res.status(200).json({ data: result });
+    const [result, total] = await Promise.all([
+      prisma.milestoneStat.findMany({
+        where,
+        orderBy: [{ page: 'asc' }, { sectionKey: 'asc' }, { sortOrder: 'asc' }],
+        skip,
+        take: limit,
+      }),
+      prisma.milestoneStat.count({ where }),
+    ]);
+
+    res.status(200).json({
+      data: result,
+      meta: buildPaginationMeta(total, pageNumber, limit),
+    });
   } catch {
     internalServerError(res);
   }
