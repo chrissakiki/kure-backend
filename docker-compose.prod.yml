@@ -1,0 +1,43 @@
+name: kure-prod
+
+services:
+  api:
+    image: kure-backend-api-prod
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:${PORT:-5001}:${PORT:-5001}"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - kure
+    restart: unless-stopped
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - kure-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    networks:
+      - kure
+    restart: unless-stopped
+
+networks:
+  kure:
+    name: kure
+
+volumes:
+  kure-postgres-data:
