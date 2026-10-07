@@ -274,7 +274,7 @@ model OfferCard {
   imageUrl    String?
   subtitle    String?
   badge       String?
-  price       String
+  price       String?
   priceNote   String?
   perks       String[] @default([])
   ctaLabel    String?

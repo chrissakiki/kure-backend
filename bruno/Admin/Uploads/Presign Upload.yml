@@ -1,0 +1,35 @@
+info:
+  name: Presign Upload
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/admin/uploads/presign"
+  headers:
+    - name: Authorization
+      value: Bearer {{token}}
+  body:
+    type: json
+    data: |-
+      {
+        "folder": "heroes",
+        "contentType": "image/webp"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+script:
+  res: |-
+    const body = res.getBody();
+    if (body?.data?.uploadUrl) {
+      bru.setVar("upload_url", body.data.uploadUrl);
+    }
+    if (body?.data?.imageUrl) {
+      bru.setVar("image_url", body.data.imageUrl);
+    }

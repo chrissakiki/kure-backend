@@ -424,7 +424,7 @@ const heroSeed = [
       'Current schedule live on Instagram @kure.lb — see the Academy highlight.',
     primaryCtaLabel: 'RESERVE YOUR SPOT',
     secondaryCtaLabel: 'SEE SCHEDULE ON INSTAGRAM',
-    secondaryCtaHref: 'https://www.instagram.com/kure.lb/',
+    secondaryCtaHref: 'https://www.instagram.com/kureacademy',
   },
   {
     page: 'ABOUT' as const,
@@ -817,7 +817,7 @@ const sectionOutroSeed = [
     primaryCtaLabel: 'RESERVE YOUR SPOT',
     primaryCtaHref: '/academy',
     secondaryCtaLabel: 'SEE FULL CALENDAR ON INSTAGRAM',
-    secondaryCtaHref: 'https://www.instagram.com/kure.lb/',
+    secondaryCtaHref: 'https://www.instagram.com/kureacademy',
     isActive: true,
   },
   {
@@ -2098,7 +2098,7 @@ const contentBlockSeed = [
     sectionKey: 'ACADEMY_METHOD',
     isActive: true,
     content: `
-<p><strong>◆ About the KURE method</strong></p>
+<p class="method-heading"><strong>About the KURE method</strong></p>
 <p>The techniques, sequences, and protocols taught at KURE Academy are the intellectual property of KURE. They represent years of refinement across 20,000+ client sessions.</p>
 <p><strong>Students may not:</strong></p>
 <ul>

@@ -49,8 +49,10 @@ export const validate = (schema: ZodType) => {
     };
 
     if (data.body !== undefined) req.body = data.body;
+;
     if (data.query !== undefined) Object.assign(req.query, data.query);
     if (data.params !== undefined) Object.assign(req.params, data.params);
+
 
     next();
   };

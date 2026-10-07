@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { SitePage } from '../generated/prisma/enums';
 import { paginationQueryFields } from '../utils/pagination';
+import { optionalStoredImageUrl } from './image.schema';
 
 const idParam = z.object({
   id: z.uuid(),
@@ -25,10 +26,10 @@ const offerCardBody = z.object({
   page: z.enum(SitePage),
   sectionKey: z.string().min(1),
   name: z.string().min(1),
-  imageUrl: z.string().min(1).optional().nullable(),
+  imageUrl: optionalStoredImageUrl,
   subtitle: z.string().min(1).optional().nullable(),
   badge: z.string().min(1).optional().nullable(),
-  price: z.string(),
+  price: z.string().min(1).optional().nullable(),
   priceNote: z.string().min(1).optional().nullable(),
   perks: z.array(z.string().min(1)).optional(),
   ctaLabel: z.string().min(1).optional().nullable(),

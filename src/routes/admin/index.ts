@@ -4,6 +4,7 @@ import testimonialRoutes from './testimonial.routes';
 import heroRoutes from './hero.routes';
 import contentRoutes from './content.routes';
 import jobOpeningRoutes from './job-opening.routes';
+import uploadRoutes from './upload.routes';
 import {
   categoryAddonRoutes,
   categoryPriceRoutes,
@@ -16,6 +17,7 @@ import { authMiddleware, requireAdmin } from '../../middleware/auth.middleware';
 const router = Router();
 
 router.use(authMiddleware, requireAdmin);
+router.use('/uploads', uploadRoutes);
 router.use('/faqs', faqRoutes);
 router.use('/testimonials', testimonialRoutes);
 router.use('/heroes', heroRoutes);

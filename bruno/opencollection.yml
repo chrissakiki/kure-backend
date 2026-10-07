@@ -55,6 +55,10 @@ request:
       value: ""
     - name: job_opening_id
       value: ""
+    - name: upload_url
+      value: https://kureinfrastack-imagesbucket1e86afb2-hy9agdl1revy.s3.eu-central-1.amazonaws.com/heroes/846df297-1533-449e-a2ad-89c7a13b678b.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAZLMU5V45KWCP4GKK%2F20260903%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20260903T155802Z&X-Amz-Expires=300&X-Amz-Signature=5d9cd439aad23ea6135eb84272cca21e33e86f4fa1b21ebc80b6ae5f46ccee9c&X-Amz-SignedHeaders=host&x-amz-checksum-crc32=AAAAAA%3D%3D&x-amz-sdk-checksum-algorithm=CRC32&x-id=PutObject
+    - name: image_url
+      value: ""
 bundled: false
 extensions:
   bruno:

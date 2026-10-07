@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { CategoryPriceKind } from '../generated/prisma/enums';
 import { paginationQueryFields } from '../utils/pagination';
+import { optionalStoredImageUrl } from './image.schema';
 
 const idParam = z.object({
   id: z.uuid(),
@@ -57,7 +58,7 @@ const serviceCategoryBody = z.object({
   pricingSubtitle: optionalNullableString,
   note: optionalNullableString,
   cardBlurb: optionalNullableString,
-  imageUrl: optionalNullableString,
+  imageUrl: optionalStoredImageUrl,
   highlights: z.array(z.string().min(1)).optional(),
   currencyId: z.uuid(),
   sortOrder: z.number().int(),
@@ -81,7 +82,7 @@ const serviceBody = z.object({
   categoryId: z.uuid(),
   name: z.string().min(1),
   description: z.string().min(1),
-  imageUrl: optionalNullableString,
+  imageUrl: optionalStoredImageUrl,
   badge: optionalNullableString,
   sortOrder: z.number().int(),
   isActive: z.boolean(),

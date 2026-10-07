@@ -11,8 +11,11 @@ export type PaginationQuery = {
 };
 
 export const getPagination = (query: PaginationQuery = {}) => {
-  const pageNumber = query.pageNumber ?? 1;
-  const limit = query.limit ?? 20;
+  const rawPage = Number(query.pageNumber ?? 1);
+  const rawLimit = Number(query.limit ?? 20);
+  const pageNumber = Number.isFinite(rawPage) && rawPage >= 1 ? Math.floor(rawPage) : 1;
+  const limit =
+    Number.isFinite(rawLimit) && rawLimit >= 1 ? Math.min(Math.floor(rawLimit), 100) : 20;
 
   return {
     pageNumber,

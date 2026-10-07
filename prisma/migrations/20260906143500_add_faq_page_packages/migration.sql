@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "FaqPage" ADD VALUE 'PACKAGES';

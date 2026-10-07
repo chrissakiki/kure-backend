@@ -1,0 +1,33 @@
+info:
+  name: Upload File to S3
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{upload_url}}"
+  headers:
+    - name: Content-Type
+      value: image/webp
+  body:
+    type: file
+    file: ""
+  auth: none
+
+settings:
+  encodeUrl: false
+  timeout: 30000
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Bruno may double-encode the presigned URL, causing AWS auth errors.
+  If you get AuthorizationQueryParametersError, use curl instead:
+
+  1. Run "Presign Upload" first
+  2. Copy the uploadUrl from the response
+  3. In PowerShell run:
+     curl.exe -X PUT '<uploadUrl>' -H 'Content-Type: image/webp' -T 'C:\path\to\your-file.webp'
+
+  Use single quotes around the URL so PowerShell doesn't mangle %2F.
+  Use curl.exe (not curl, which is a PowerShell alias).
