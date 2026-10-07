@@ -358,6 +358,8 @@ const heroSeed = [
       'WORLD MASSAGE FEDERATION MEMBER',
       'LICENSED LEBANESE THERAPISTS',
     ],
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/b1c5dcd6-207f-49cc-b5ff-0ff5a2465966.webp',
   },
   {
     page: 'SERVICES' as const,
@@ -369,6 +371,8 @@ const heroSeed = [
     primaryCtaLabel: 'BOOK YOUR SESSION',
     secondaryCtaLabel: 'SAVE WITH A PACKAGE',
     secondaryCtaHref: '/packages',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/5e08173f-5d9a-4ad6-aa24-260f322aee34.webp',
   },
   {
     page: 'PACKAGES' as const,
@@ -379,6 +383,8 @@ const heroSeed = [
       'Prepay for 5 or 10 sessions and save on every visit. Priority booking. Extended validity. Consistency is where results happen.',
     primaryCtaLabel: 'CHOOSE YOUR PACKAGE',
     primaryCtaHref: '/packages',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/963313d9-6e3f-4838-8f61-982ec2d9eb0e.webp',
   },
   {
     page: 'GIFT_VOUCHERS' as const,
@@ -390,6 +396,8 @@ const heroSeed = [
     primaryCtaLabel: 'BUY A VOUCHER',
     secondaryCtaLabel: 'WHATSAPP TO ORDER',
     secondaryCtaHref: 'https://wa.me/96176577070',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/f625f072-c2e5-44ec-a255-5c32e7fdd6bf.webp',
   },
   {
     page: 'LOCATIONS' as const,
@@ -399,6 +407,8 @@ const heroSeed = [
     description:
       'KURE Dbayeh, KURE Verdun, and in-home coverage across Lebanon — same trained hands, same standards, wherever you are.',
     primaryCtaLabel: 'BOOK YOUR SESSION',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/239d4189-2018-4cd6-a72f-863980836e3e.webp',
   },
   {
     page: 'CORPORATE' as const,
@@ -411,6 +421,8 @@ const heroSeed = [
     primaryCtaLabel: 'PLAN YOUR PROGRAM',
     secondaryCtaLabel: 'WHATSAPP US',
     secondaryCtaHref: 'https://wa.me/96176577070',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/4363bb62-be1e-45c3-9146-b4f9b8b1e7df.webp',
   },
   {
     page: 'ACADEMY' as const,
@@ -425,6 +437,8 @@ const heroSeed = [
     primaryCtaLabel: 'RESERVE YOUR SPOT',
     secondaryCtaLabel: 'SEE SCHEDULE ON INSTAGRAM',
     secondaryCtaHref: 'https://www.instagram.com/kureacademy',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/f5cb0cdc-2d3f-4b70-b432-34376ef20fb3.webp',
   },
   {
     page: 'ABOUT' as const,
@@ -434,6 +448,8 @@ const heroSeed = [
     description:
       "From one therapist to Lebanon's leading wellness ecosystem — the story of KURE.",
     primaryCtaLabel: 'BOOK YOUR SESSION',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/119ad06f-92d1-4eec-938b-3ef68be8916f.webp',
   },
   {
     page: 'CAREERS' as const,
@@ -446,6 +462,8 @@ const heroSeed = [
     primaryCtaLabel: 'VIEW OPEN ROLES',
     secondaryCtaLabel: 'HOW TO APPLY',
     highlights: ['Since 2018', 'WMF Member', 'Licensed Lebanese Therapists'],
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/80a83859-2b0c-42e8-b116-60ef3fd37ed0.webp',
   },
   {
     page: 'TESTIMONIALS' as const,
@@ -455,6 +473,8 @@ const heroSeed = [
     description:
       'Real reviews from real KURE clients — one-off sessions, packages, corporate programs, events, and Academy graduates.',
     primaryCtaLabel: 'BOOK YOUR SESSION',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/heroes/3648d8b5-e563-4414-b0f8-2f6057f5d7d5.webp',
   },
   {
     page: 'FAQ' as const,
@@ -1275,7 +1295,8 @@ const offerCardSeed = [
     sectionKey: 'LOCATION_HOUSES',
     sortOrder: 1,
     name: 'KURE Dbayeh',
-    imageUrl: '/images/locations/kure-dbayeh.jpg',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/offer-cards/a8f8cf54-ea66-4c8c-b059-256f45ed9910.webp',
     subtitle:
       'Our flagship wellness house — massage, drainage, facial rituals, and body care.',
     badge: null,
@@ -1297,7 +1318,8 @@ const offerCardSeed = [
     sectionKey: 'LOCATION_HOUSES',
     sortOrder: 2,
     name: 'KURE Verdun',
-    imageUrl: '/images/locations/kure-verdun.jpg',
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/offer-cards/889027f8-a674-4b1a-b3bb-f4eb8f6cd1a7.webp',
     subtitle:
       'Recovery, stretching, massage, and bodywork in the heart of Beirut.',
     badge: null,
@@ -1319,7 +1341,8 @@ const offerCardSeed = [
     sectionKey: 'HOME_BEYOND',
     sortOrder: 1,
     name: 'KURE Academy',
-    imageUrl: null,
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/offer-cards/80455707-8fe7-4868-ae36-173489324758.webp',
     subtitle:
       'Practical wellness workshops for therapists, wellness professionals, and anyone drawn to the art of bodywork.',
     badge: 'TRAINING · CERTIFICATION',
@@ -1339,7 +1362,8 @@ const offerCardSeed = [
     sectionKey: 'HOME_BEYOND',
     sortOrder: 2,
     name: 'Corporate Wellness',
-    imageUrl: null,
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/offer-cards/68552c31-77a0-4911-92b6-78f300cb64ef.webp',
     subtitle:
       "On-site wellness services designed to reduce stress, improve recovery, and support your team's wellbeing.",
     badge: 'ON-SITE · FOR TEAMS',
@@ -1359,7 +1383,8 @@ const offerCardSeed = [
     sectionKey: 'HOME_BEYOND',
     sortOrder: 3,
     name: 'Wellness Events',
-    imageUrl: null,
+    imageUrl:
+      'https://d13wm7e40rik2z.cloudfront.net/offer-cards/f3685223-cbe0-42b7-9e59-695315adc672.webp',
     subtitle:
       'Elevated wellness experiences delivered at your gathering — bridal, birthdays, or corporate retreats.',
     badge: 'PRIVATE · CURATED',
@@ -2493,7 +2518,8 @@ const serviceCatalogSeed = {
         'Single sessions when you need them — packages when you want consistency and better value.',
       note: 'Package sessions are redeemable In-Home or in-clinic. Any bonus/free session is in-clinic only.',
       cardBlurb: 'Techniques for lift, glow, and definition.',
-      imageUrl: null,
+      imageUrl:
+        'https://d13wm7e40rik2z.cloudfront.net/service-categories/932507f4-f4d6-4f57-92ad-b8dc8f62c270.webp',
       highlights: [
         '40-minute anti-aging facial lifting session',
         '5-session youth enhancement package — slows visible aging with consistent care',
@@ -2502,6 +2528,8 @@ const serviceCatalogSeed = {
       services: [
         {
           name: 'Facial Madero wood',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/6a8cd8ad-e1a3-4b40-b358-a02749daf38d.webp',
           description:
             'Facial sculpting using anatomically shaped wooden tools — targeted lift and definition.',
           badge: null,
@@ -2509,6 +2537,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Facial Iced Madero',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/f18a24a7-9112-4bc7-b37f-86dac7c71701.webp',
           description:
             'Cold Madero technique that firms, decongests, and awakens the skin.',
           badge: null,
@@ -2546,7 +2576,8 @@ const serviceCatalogSeed = {
         'Single sessions when you need them — packages when you want consistency and better value.',
       note: '5-session package includes +1 Free Facial. 10-session package includes +1 Free Session. Bonuses are in-clinic only. All other package sessions redeemable In-Home or in-clinic.',
       cardBlurb: 'Techniques for sculpt, drain, and redefine.',
-      imageUrl: null,
+      imageUrl:
+        'https://d13wm7e40rik2z.cloudfront.net/service-categories/6e751f49-92d8-4eb7-9ba6-05852d57682b.webp',
       highlights: [
         '50-minute body sculpting and drainage session',
         'Packages for consistent visible results',
@@ -2555,6 +2586,8 @@ const serviceCatalogSeed = {
       services: [
         {
           name: 'Lymphatic Drainage',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/7638dd15-ae1c-49b4-a250-b60e7f8e2820.webp',
           description:
             'Manual lymphatic technique to reduce retention, decongest tissue, and support circulation.',
           badge: null,
@@ -2562,6 +2595,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Manual Cellulite Removal',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/7d06ffb3-203f-4a9d-9c45-e01377731edd.webp',
           description:
             'Targeted manual work to break down cellulite and improve skin texture.',
           badge: null,
@@ -2569,6 +2604,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Madero Wood Therapy',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/47ea1e43-56c4-4b38-9378-c4fc485ed2c4.webp',
           description:
             'Sculpting with anatomically shaped wooden tools — contour and tone.',
           badge: null,
@@ -2576,6 +2613,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Iced Madero Therapy',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/3c30079b-0485-4ebd-98cd-05b88e635140.webp',
           description:
             'Cold wood technique that firms, decongests, and refreshes the body.',
           badge: null,
@@ -2583,6 +2622,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Brazilian Sculpting',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/5c4e6767-c605-4ca1-b02d-50dd4f8c1964.webp',
           description:
             'Signature sculpting protocol for shape, lift, and definition.',
           badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
@@ -2590,6 +2631,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Gut Therapy',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/b6f13a54-d982-4585-a9b7-65f41f0ebbf0.webp',
           description:
             'Abdominal-focused work to support digestion, release, and core comfort.',
           badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
@@ -2647,7 +2690,8 @@ const serviceCatalogSeed = {
         'Single sessions when you need them — packages when you want consistency and better value.',
       note: '5-session package includes +1 Free Facial. 10-session package includes +1 Free Session. Bonuses are in-clinic only. All other package sessions redeemable In-Home or in-clinic.',
       cardBlurb: null,
-      imageUrl: null,
+      imageUrl:
+        'https://d13wm7e40rik2z.cloudfront.net/service-categories/4bea293d-6add-47f7-a8a9-91108b7c371f.webp',
       highlights: [
         '50 or 80-minute signature body massage',
         'Packages for lasting rhythm and better value',
@@ -2656,6 +2700,8 @@ const serviceCatalogSeed = {
       services: [
         {
           name: 'Relaxing Massage',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/9a0d49af-e710-4a3e-845d-21e650f0a653.webp',
           description:
             'Full-body relaxation to release tension and restore calm.',
           badge: null,
@@ -2663,6 +2709,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Deep Tissue Massage',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/233e70bf-ae6b-4fbb-8422-d5834a7a9f1b.webp',
           description:
             'Focused pressure for chronic tension and deeper muscle release.',
           badge: null,
@@ -2670,6 +2718,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Pregnancy Massage',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/c79248bd-1def-4676-a73b-b5974d77190c.webp',
           description:
             'Adapted bodywork for comfort and relief during pregnancy.',
           badge: null,
@@ -2677,6 +2727,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'In-Home Couples Massage',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/7d59c17d-d225-4969-9ee8-8c65575a3f90.webp',
           description:
             'Two therapists, side-by-side signature massage at home.',
           badge: 'IN-HOME ONLY · $120 FOR BOTH',
@@ -2747,7 +2799,8 @@ const serviceCatalogSeed = {
         'Single sessions when you need them — recovery priced for performance.',
       note: null,
       cardBlurb: null,
-      imageUrl: null,
+      imageUrl:
+        'https://d13wm7e40rik2z.cloudfront.net/service-categories/4a0bf310-4a98-4c62-aec6-b4988bf74706.webp',
       highlights: [
         '50 or 70-minute recovery-focused session',
         'Built for athletes and active bodies',
@@ -2756,6 +2809,8 @@ const serviceCatalogSeed = {
       services: [
         {
           name: 'Stretching Therapy',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/de0598eb-cf55-47ab-a31e-8994d4d7c8de.webp',
           description:
             'Assisted full-body stretching for flexibility, joint mobility, and injury prevention.',
           badge: null,
@@ -2763,6 +2818,8 @@ const serviceCatalogSeed = {
         },
         {
           name: 'Sports Massage',
+          imageUrl:
+            'https://d13wm7e40rik2z.cloudfront.net/services/233dfce3-0904-404a-8e45-011cae335b2e.webp',
           description:
             'Deep, targeted release for athletes — faster recovery, better performance.',
           badge: null,
@@ -3007,7 +3064,7 @@ async function main() {
           create: category.services.map((service) => ({
             name: service.name,
             description: service.description,
-            imageUrl: null,
+            imageUrl: service.imageUrl ?? null,
             badge: service.badge,
             sortOrder: service.sortOrder,
             isActive: true,
