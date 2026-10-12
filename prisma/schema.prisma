@@ -412,6 +412,7 @@ model CategoryPrice {
   label       String
   description String?
   price       Int
+  priceTo     Int?
   kind        CategoryPriceKind
   sortOrder   Int
   isActive    Boolean           @default(true)

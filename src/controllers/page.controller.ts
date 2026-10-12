@@ -729,7 +729,12 @@ const getServiceCategoryPage = async (req: Request, res: Response) => {
 
 const formatCategoryPriceSummary = (
   symbol: string,
-  prices: { label: string; price: number; kind: CategoryPriceKind }[],
+  prices: {
+    label: string;
+    price: number;
+    priceTo?: number | null;
+    kind: CategoryPriceKind;
+  }[],
 ) => {
   const firstSingle = prices.find((price) => price.kind === CategoryPriceKind.SINGLE);
   if (!firstSingle) return null;
@@ -738,7 +743,11 @@ const formatCategoryPriceSummary = (
     (price) => price.kind === CategoryPriceKind.PACKAGE,
   );
 
-  const parts = [`From ${symbol}${firstSingle.price}`, firstSingle.label];
+  const singleAmount =
+    firstSingle.priceTo != null
+      ? `${symbol}${firstSingle.price} / ${symbol}${firstSingle.priceTo}`
+      : `${symbol}${firstSingle.price}`;
+  const parts = [`From ${singleAmount}`, firstSingle.label];
   if (firstPackage) {
     parts.push(`${firstPackage.label} ${symbol}${firstPackage.price}`);
   }

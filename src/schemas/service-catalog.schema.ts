@@ -112,6 +112,7 @@ const categoryPriceBody = z.object({
   label: z.string().min(1),
   description: optionalNullableString,
   price: z.number().int().nonnegative(),
+  priceTo: z.number().int().nonnegative().nullable().optional(),
   kind: z.enum(CategoryPriceKind),
   sortOrder: z.number().int(),
   isActive: z.boolean(),
