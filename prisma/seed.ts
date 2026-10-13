@@ -626,7 +626,7 @@ const sectionIntroSeed = [
     title: 'Train with us. Then work with us.',
     titleAccent: 'work',
     description:
-      'KURE Academy is our in-house training arm — professional workshops and courses built directly from the protocols we deliver to real clients.\n\nTop-performing graduates are considered first for on-call and part-time therapist roles at KURE. It\'s the most direct path from training to a working practice in Lebanon.',
+      "KURE Academy is our in-house training arm — professional workshops and courses built directly from the protocols we deliver to real clients.\n\nTop-performing graduates are considered first for on-call and part-time therapist roles at KURE. It's the most direct path from training to a working practice in Lebanon.",
     isActive: true,
   },
   {
@@ -1067,7 +1067,7 @@ const legalDocumentSeed = [
 `.trim(),
   },
   {
-    page: "PRIVACY" as const,
+    page: 'PRIVACY' as const,
     isActive: true,
     content: `
 <div class="legal-notice">
@@ -1508,7 +1508,7 @@ const featureItemSeed = [
     page: 'GIFT_VOUCHERS' as const,
     sectionKey: 'VOUCHER_POLICY',
     title: 'Validity window',
-    description: 'Vouchers are valid for 2 months from the date of purchase.',
+    description: 'Vouchers are valid for 6 months from the date of purchase.',
     content: null,
     sortOrder: 1,
     isActive: true,
@@ -2477,7 +2477,8 @@ const stepItemSeed = [
     page: 'HOME' as const,
     sectionKey: 'HOME_HOW_IT_WORKS',
     title: 'Choose your service',
-    description: 'Pick a session or a package. Any signature service, any duration.',
+    description:
+      'Pick a session or a package. Any signature service, any duration.',
     sortOrder: 1,
     isActive: true,
   },
@@ -2618,7 +2619,7 @@ const serviceCatalogSeed = {
             'https://d13wm7e40rik2z.cloudfront.net/services/3c30079b-0485-4ebd-98cd-05b88e635140.webp',
           description:
             'Cold wood technique that firms, decongests, and refreshes the body.',
-          badge: null,
+          badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
           sortOrder: 4,
         },
         {
@@ -2627,7 +2628,7 @@ const serviceCatalogSeed = {
             'https://d13wm7e40rik2z.cloudfront.net/services/5c4e6767-c605-4ca1-b02d-50dd4f8c1964.webp',
           description:
             'Signature sculpting protocol for shape, lift, and definition.',
-          badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
+          badge: null,
           sortOrder: 5,
         },
         {
@@ -2636,7 +2637,7 @@ const serviceCatalogSeed = {
             'https://d13wm7e40rik2z.cloudfront.net/services/b6f13a54-d982-4585-a9b7-65f41f0ebbf0.webp',
           description:
             'Abdominal-focused work to support digestion, release, and core comfort.',
-          badge: 'EXCLUSIVE TO KURE WELLNESS HOUSES',
+          badge: null,
           sortOrder: 6,
         },
       ],
